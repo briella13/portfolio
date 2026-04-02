@@ -73,7 +73,7 @@ export default function About() {
             sx={{
               fontFamily: "'Inter', sans-serif",
               fontWeight: 500,
-              fontSize: { xs: "40px", md: "60px" },
+              fontSize: { xs: "32px", md: "48px" },
               color: "#314158",
               lineHeight: 1,
             }}
@@ -91,7 +91,7 @@ export default function About() {
             sx={{
               fontFamily: "'Inter', sans-serif",
               fontStyle: "italic",
-              fontSize: { xs: "16px", md: "20px" },
+              fontSize: { xs: "14px", md: "18px" },
               color: "#45556c",
               maxWidth: "811px",
               mx: "auto",
@@ -120,7 +120,7 @@ export default function About() {
             <Typography
               sx={{
                 fontFamily: "'Inter', sans-serif",
-                fontSize: { xs: "18px", md: "20px", xl: "24px" },
+                fontSize: { xs: "16px", md: "18px", xl: "20px" },
                 color: "#314158",
                 lineHeight: 1.6,
               }}
@@ -179,7 +179,7 @@ export default function About() {
                     sx={{
                       fontFamily: "'Inter', sans-serif",
                       fontWeight: 600,
-                      fontSize: "18px",
+                      fontSize: "16px",
                       color: "#8200db",
                       mb: 0.5,
                     }}
@@ -189,7 +189,7 @@ export default function About() {
                   <Typography
                     sx={{
                       fontFamily: "'Inter', sans-serif",
-                      fontSize: "14px",
+                      fontSize: "13px",
                       color: "#45556c",
                       lineHeight: 1.6,
                       maxWidth: "373px",

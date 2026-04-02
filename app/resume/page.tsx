@@ -17,7 +17,7 @@ export default function Resume() {
         minHeight: "calc(100vh - 100px)",
         display: "flex",
         justifyContent: "center",
-        alignItems: "center",
+        alignItems: { xs: "flex-start", lg: "center" },
         py: { xs: 4, md: 4 },
         px: { xs: 2, md: 4 },
         bgcolor: "#f4f4f9", // Light background behind the resume paper
@@ -31,6 +31,7 @@ export default function Resume() {
           maxWidth: "1200px",
           bgcolor: "white",
           boxShadow: "0px 10px 40px rgba(0,0,0,0.1)",
+          borderRadius: { xs: "16px", md: "24px" },
           overflow: "hidden", // ensures border radius or clean edges if added
         }}
       >
@@ -50,8 +51,8 @@ export default function Resume() {
           <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
             <Box
               sx={{
-                width: "120px",
-                height: "120px",
+                width: "100px",
+                height: "100px",
                 borderRadius: "50%",
                 overflow: "hidden",
                 position: "relative",
@@ -60,14 +61,14 @@ export default function Resume() {
               }}
             >
               {/* Assuming there is a hero image, fallback to placeholder if not strictly available */}
-              <Image src="/images/projects/my-profile.png" alt="Mia Gabriella B. Gubat" fill sizes="120px" style={{ objectFit: "cover" }} />
+              <Image src="/images/projects/my-profile.png" alt="Mia Gabriella B. Gubat" fill sizes="100px" style={{ objectFit: "cover" }} />
             </Box>
             <Typography
               variant="h1"
               sx={{
                 fontFamily: "'Inter', sans-serif",
                 fontWeight: 600,
-                fontSize: "20px",
+                fontSize: "18px",
                 textAlign: "center",
                 color: "#111827",
                 mb: 2,
@@ -79,16 +80,16 @@ export default function Resume() {
 
             <Stack spacing={1.5} sx={{ width: "100%" }}>
               <Stack direction="row" spacing={1.5} alignItems="center">
-                <LocationOnOutlinedIcon sx={{ fontSize: 20 }} />
-                <Typography sx={{ fontFamily: "'Inter', sans-serif", fontSize: "14px" }}>Imperial Homes, Pangpang, Sorsogon</Typography>
+                <LocationOnOutlinedIcon sx={{ fontSize: 18 }} />
+                <Typography sx={{ fontFamily: "'Inter', sans-serif", fontSize: "13px" }}>Imperial Homes, Pangpang, Sorsogon</Typography>
               </Stack>
               <Stack direction="row" spacing={1.5} alignItems="center">
-                <PhoneOutlinedIcon sx={{ fontSize: 20 }} />
-                <Typography sx={{ fontFamily: "'Inter', sans-serif", fontSize: "14px" }}>09859851189</Typography>
+                <PhoneOutlinedIcon sx={{ fontSize: 18 }} />
+                <Typography sx={{ fontFamily: "'Inter', sans-serif", fontSize: "13px" }}>09859851189</Typography>
               </Stack>
               <Stack direction="row" spacing={1.5} alignItems="center">
-                <EmailOutlinedIcon sx={{ fontSize: 20 }} />
-                <Typography sx={{ fontFamily: "'Inter', sans-serif", fontSize: "14px" }}>gubatmiagabriella@gmail.com</Typography>
+                <EmailOutlinedIcon sx={{ fontSize: 18 }} />
+                <Typography sx={{ fontFamily: "'Inter', sans-serif", fontSize: "13px" }}>gubatmiagabriella@gmail.com</Typography>
               </Stack>
             </Stack>
           </Box>
@@ -100,7 +101,7 @@ export default function Resume() {
               sx={{
                 fontFamily: "'Inter', sans-serif",
                 fontWeight: 600,
-                fontSize: "16px",
+                fontSize: "15px",
                 mb: 1,
                 textTransform: "uppercase",
               }}
@@ -114,25 +115,25 @@ export default function Resume() {
                 sx={{
                   bgcolor: "rgba(255,255,255,0.2)",
                   borderRadius: "50%",
-                  p: 1,
+                  p: 0.75,
                   display: "flex",
                 }}
               >
-                <SchoolOutlinedIcon sx={{ fontSize: 24 }} />
+                <SchoolOutlinedIcon sx={{ fontSize: 20 }} />
               </Box>
               <Box>
                 <Typography
                   sx={{
                     fontFamily: "'Inter', sans-serif",
                     fontWeight: 700,
-                    fontSize: "16px",
+                    fontSize: "14px",
                     lineHeight: 1.4,
                   }}
                 >
                   Computer Communication Development Institute
                 </Typography>
-                <Typography sx={{ fontFamily: "'Inter', sans-serif", fontSize: "14px", mt: 0.5 }}>Rizal St., Sorsogon City</Typography>
-                <Typography sx={{ fontFamily: "'Inter', sans-serif", fontSize: "14px", mt: 0.5 }}>2022 – Present</Typography>
+                <Typography sx={{ fontFamily: "'Inter', sans-serif", fontSize: "13px", mt: 0.5 }}>Rizal St., Sorsogon City</Typography>
+                <Typography sx={{ fontFamily: "'Inter', sans-serif", fontSize: "13px", mt: 0.5 }}>2022 – Present</Typography>
               </Box>
             </Stack>
           </Box>
@@ -144,7 +145,7 @@ export default function Resume() {
               sx={{
                 fontFamily: "'Inter', sans-serif",
                 fontWeight: 600,
-                fontSize: "16px",
+                fontSize: "15px",
                 mb: 1,
                 textTransform: "uppercase",
               }}
@@ -203,7 +204,7 @@ export default function Resume() {
               sx={{
                 fontFamily: "'Inter', sans-serif",
                 fontWeight: 500,
-                fontSize: "20px",
+                fontSize: "18px",
                 mb: 1,
                 color: "#111827",
               }}
@@ -214,7 +215,7 @@ export default function Resume() {
             <Typography
               sx={{
                 fontFamily: "'Inter', sans-serif",
-                fontSize: "15px",
+                fontSize: "14px",
                 color: "#4b5563",
                 lineHeight: 1.6,
               }}
@@ -231,7 +232,7 @@ export default function Resume() {
               sx={{
                 fontFamily: "'Inter', sans-serif",
                 fontWeight: 500,
-                fontSize: "20px",
+                fontSize: "18px",
                 mb: 1,
                 color: "#111827",
               }}
@@ -246,19 +247,19 @@ export default function Resume() {
                   bgcolor: "#eff6ff",
                   color: "#2563eb",
                   borderRadius: "50%",
-                  p: 1.5,
+                  p: 1,
                   display: "flex",
                   flexShrink: 0,
                 }}
               >
-                <WorkOutlineOutlinedIcon sx={{ fontSize: 24 }} />
+                <WorkOutlineOutlinedIcon sx={{ fontSize: 20 }} />
               </Box>
               <Box>
                 <Typography
                   sx={{
                     fontFamily: "'Inter', sans-serif",
                     fontWeight: 600,
-                    fontSize: "16px",
+                    fontSize: "15px",
                     color: "#2563eb",
                     mb: 0.5,
                   }}
@@ -268,7 +269,7 @@ export default function Resume() {
                 <Typography
                   sx={{
                     fontFamily: "'Inter', sans-serif",
-                    fontSize: "15px",
+                    fontSize: "14px",
                     color: "#4b5563",
                     lineHeight: 1.6,
                   }}
@@ -287,7 +288,7 @@ export default function Resume() {
               sx={{
                 fontFamily: "'Inter', sans-serif",
                 fontWeight: 500,
-                fontSize: "20px",
+                fontSize: "18px",
                 mb: 1,
                 color: "#111827",
               }}
@@ -302,7 +303,7 @@ export default function Resume() {
                   sx={{
                     fontFamily: "'Inter', sans-serif",
                     fontWeight: 600,
-                    fontSize: "16px",
+                    fontSize: "15px",
                     color: "#2563eb",
                     mb: 0.5,
                   }}
@@ -312,7 +313,7 @@ export default function Resume() {
                 <Typography
                   sx={{
                     fontFamily: "'Inter', sans-serif",
-                    fontSize: "15px",
+                    fontSize: "14px",
                     color: "#4b5563",
                     lineHeight: 1.6,
                   }}
@@ -327,7 +328,7 @@ export default function Resume() {
                   sx={{
                     fontFamily: "'Inter', sans-serif",
                     fontWeight: 600,
-                    fontSize: "16px",
+                    fontSize: "15px",
                     color: "#2563eb",
                     mb: 0.5,
                   }}
@@ -337,7 +338,7 @@ export default function Resume() {
                 <Typography
                   sx={{
                     fontFamily: "'Inter', sans-serif",
-                    fontSize: "15px",
+                    fontSize: "14px",
                     color: "#4b5563",
                     lineHeight: 1.6,
                   }}
@@ -352,7 +353,7 @@ export default function Resume() {
                   sx={{
                     fontFamily: "'Inter', sans-serif",
                     fontWeight: 600,
-                    fontSize: "16px",
+                    fontSize: "15px",
                     color: "#2563eb",
                     mb: 0.5,
                   }}
@@ -362,7 +363,7 @@ export default function Resume() {
                 <Typography
                   sx={{
                     fontFamily: "'Inter', sans-serif",
-                    fontSize: "15px",
+                    fontSize: "14px",
                     color: "#4b5563",
                     lineHeight: 1.6,
                   }}

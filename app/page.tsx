@@ -43,7 +43,7 @@ export default function Home() {
               fontWeight: "bold",
               color: "#0a0a0a",
               whiteSpace: "nowrap",
-              fontSize: "13.5vw",
+              fontSize: "clamp(80px, 12vw, 180px)",
               lineHeight: 1,
             }}
           >
@@ -88,7 +88,7 @@ export default function Home() {
           spacing={3}
           sx={{
             position: "relative",
-            pt: { xs: "200px", md: "370px" },
+            pt: { xs: "80px", sm: "140px", md: "370px" },
             zIndex: 2,
           }}
         >
@@ -97,7 +97,7 @@ export default function Home() {
               sx={{
                 fontFamily: "'Crimson Text', sans-serif",
                 fontWeight: "bold",
-                fontSize: { xs: "32px", md: "40px" },
+                fontSize: { xs: "28px", md: "36px" },
                 color: "black",
                 lineHeight: 1.2,
               }}
@@ -108,7 +108,7 @@ export default function Home() {
               sx={{
                 fontFamily: "'Crimson Text', sans-serif",
                 fontWeight: "bold",
-                fontSize: { xs: "32px", md: "40px" },
+                fontSize: { xs: "28px", md: "36px" },
                 lineHeight: 1.2,
               }}
             >
@@ -129,7 +129,7 @@ export default function Home() {
               fontFamily: "'Inter', sans-serif",
               color: "black",
               maxWidth: "476px",
-              fontSize: { xs: "18px", md: "24px" },
+              fontSize: { xs: "16px", md: "20px" },
               lineHeight: 1.5,
               wordWrap: "break-word",
             }}
@@ -144,12 +144,12 @@ export default function Home() {
               sx={{
                 bgcolor: "#ad46ff",
                 color: "white",
-                px: 4,
-                py: 2,
-                borderRadius: "20px",
+                px: { xs: 3, md: 4 },
+                py: { xs: 1, md: 1.5 },
+                borderRadius: "16px",
                 fontFamily: "'Crimson Text', sans-serif",
                 fontStyle: "italic",
-                fontSize: { xs: "18px", md: "24px" },
+                fontSize: { xs: "16px", md: "20px" },
                 fontWeight: 600,
                 textTransform: "none",
                 whiteSpace: "nowrap",
@@ -164,12 +164,12 @@ export default function Home() {
               sx={{
                 bgcolor: "#03014c",
                 color: "white",
-                px: 4,
-                py: 2,
-                borderRadius: "20px",
+                px: { xs: 3, md: 4 },
+                py: { xs: 1, md: 1.5 },
+                borderRadius: "16px",
                 fontFamily: "'Crimson Text', sans-serif",
                 fontStyle: "italic",
-                fontSize: { xs: "18px", md: "24px" },
+                fontSize: { xs: "16px", md: "20px" },
                 fontWeight: 600,
                 textTransform: "none",
                 whiteSpace: "nowrap",

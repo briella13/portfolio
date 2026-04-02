@@ -38,7 +38,7 @@ export default function Contact() {
         minHeight: "calc(100vh - 100px)",
         display: "flex",
         justifyContent: "center",
-        alignItems: "center",
+        alignItems: { xs: "flex-start", lg: "center" },
         py: { xs: 4, md: 4 },
         px: { xs: 2, md: 4 },
         bgcolor: "#f4f4f9",
@@ -51,6 +51,7 @@ export default function Contact() {
           width: "100%",
           maxWidth: "1200px",
           boxShadow: "0px 10px 40px rgba(0,0,0,0.1)",
+          borderRadius: { xs: "16px", md: "24px" },
           overflow: "hidden",
         }}
       >
@@ -79,7 +80,7 @@ export default function Contact() {
               sx={{
                 fontFamily: "'Inter', sans-serif",
                 fontWeight: 600,
-                fontSize: "32px",
+                fontSize: "28px",
                 mb: 1,
               }}
             >
@@ -88,7 +89,7 @@ export default function Contact() {
             <Typography
               sx={{
                 fontFamily: "'Inter', sans-serif",
-                fontSize: "15px",
+                fontSize: "14px",
                 lineHeight: 1.5,
                 opacity: 0.9,
               }}
@@ -103,7 +104,7 @@ export default function Contact() {
               sx={{
                 fontFamily: "'Inter', sans-serif",
                 fontWeight: 600,
-                fontSize: "18px",
+                fontSize: "16px",
                 mb: 2,
               }}
             >
@@ -123,10 +124,10 @@ export default function Contact() {
                   <LocationOnOutlinedIcon sx={{ color: "#7e22ce" }} />
                 </Box>
                 <Box>
-                  <Typography sx={{ fontFamily: "'Inter', sans-serif", fontSize: "13px", fontWeight: 600, color: "#374151" }}>
+                  <Typography sx={{ fontFamily: "'Inter', sans-serif", fontSize: "12px", fontWeight: 600, color: "#374151" }}>
                     Address
                   </Typography>
-                  <Typography sx={{ fontFamily: "'Inter', sans-serif", fontSize: "14px" }}>Imperial Homes, Pangpang, Sorsogon</Typography>
+                  <Typography sx={{ fontFamily: "'Inter', sans-serif", fontSize: "13px" }}>Imperial Homes, Pangpang, Sorsogon</Typography>
                 </Box>
               </Stack>
 
@@ -142,10 +143,10 @@ export default function Contact() {
                   <PhoneOutlinedIcon sx={{ color: "#7e22ce" }} />
                 </Box>
                 <Box>
-                  <Typography sx={{ fontFamily: "'Inter', sans-serif", fontSize: "13px", fontWeight: 600, color: "#374151" }}>
+                  <Typography sx={{ fontFamily: "'Inter', sans-serif", fontSize: "12px", fontWeight: 600, color: "#374151" }}>
                     Phone
                   </Typography>
-                  <Typography sx={{ fontFamily: "'Inter', sans-serif", fontSize: "14px" }}>09859851189</Typography>
+                  <Typography sx={{ fontFamily: "'Inter', sans-serif", fontSize: "13px" }}>09859851189</Typography>
                 </Box>
               </Stack>
 
@@ -161,10 +162,10 @@ export default function Contact() {
                   <EmailOutlinedIcon sx={{ color: "#7e22ce" }} />
                 </Box>
                 <Box>
-                  <Typography sx={{ fontFamily: "'Inter', sans-serif", fontSize: "13px", fontWeight: 600, color: "#374151" }}>
+                  <Typography sx={{ fontFamily: "'Inter', sans-serif", fontSize: "12px", fontWeight: 600, color: "#374151" }}>
                     Email
                   </Typography>
-                  <Typography sx={{ fontFamily: "'Inter', sans-serif", fontSize: "14px" }}>gubatmia13@gmail.com</Typography>
+                  <Typography sx={{ fontFamily: "'Inter', sans-serif", fontSize: "13px" }}>gubatmia13@gmail.com</Typography>
                 </Box>
               </Stack>
             </Stack>
@@ -176,8 +177,8 @@ export default function Contact() {
               sx={{
                 fontFamily: "'Inter', sans-serif",
                 fontWeight: 600,
-                fontSize: "18px",
-                mb: 3,
+                fontSize: "16px",
+                mb: 2,
               }}
             >
               Social Media
@@ -188,33 +189,33 @@ export default function Contact() {
                   bgcolor: "rgba(255, 255, 255, 0.2)",
                   color: "#ffffff",
                   borderRadius: "12px",
-                  p: 1.5,
+                  p: 1,
                   "&:hover": { bgcolor: "rgba(255, 255, 255, 0.3)" },
                 }}
               >
-                <FacebookIcon />
+                <FacebookIcon sx={{ fontSize: 20 }} />
               </IconButton>
               <IconButton
                 sx={{
                   bgcolor: "rgba(255, 255, 255, 0.2)",
                   color: "#ffffff",
                   borderRadius: "12px",
-                  p: 1.5,
+                  p: 1,
                   "&:hover": { bgcolor: "rgba(255, 255, 255, 0.3)" },
                 }}
               >
-                <LinkedInIcon />
+                <LinkedInIcon sx={{ fontSize: 20 }} />
               </IconButton>
               <IconButton
                 sx={{
                   bgcolor: "rgba(255, 255, 255, 0.2)",
                   color: "#ffffff",
                   borderRadius: "12px",
-                  p: 1.5,
+                  p: 1,
                   "&:hover": { bgcolor: "rgba(255, 255, 255, 0.3)" },
                 }}
               >
-                <GitHubIcon />
+                <GitHubIcon sx={{ fontSize: 20 }} />
               </IconButton>
             </Stack>
           </Box>
@@ -245,7 +246,7 @@ export default function Contact() {
                 sx={{
                   fontFamily: "'Inter', sans-serif",
                   fontWeight: 600,
-                  fontSize: "32px",
+                  fontSize: "28px",
                   color: "#1f2937",
                 }}
               >
@@ -256,7 +257,7 @@ export default function Contact() {
             <Typography
               sx={{
                 fontFamily: "'Inter', sans-serif",
-                fontSize: "15px",
+                fontSize: "14px",
                 color: "#4b5563",
                 mb: 3,
                 lineHeight: 1.6,
@@ -272,7 +273,7 @@ export default function Contact() {
                     sx={{
                       fontFamily: "'Inter', sans-serif",
                       fontWeight: 600,
-                      fontSize: "14px",
+                      fontSize: "13px",
                       color: "#374151",
                       mb: 1,
                       display: "flex",
@@ -280,7 +281,7 @@ export default function Contact() {
                       gap: 1,
                     }}
                   >
-                    <PersonOutlineOutlinedIcon sx={{ fontSize: 18, color: "#9333ea" }} />
+                    <PersonOutlineOutlinedIcon sx={{ fontSize: 16, color: "#9333ea" }} />
                     Your Name
                   </Typography>
                   <TextField
@@ -306,7 +307,7 @@ export default function Contact() {
                     sx={{
                       fontFamily: "'Inter', sans-serif",
                       fontWeight: 600,
-                      fontSize: "14px",
+                      fontSize: "13px",
                       color: "#374151",
                       mb: 1,
                       display: "flex",
@@ -314,7 +315,7 @@ export default function Contact() {
                       gap: 1,
                     }}
                   >
-                    <EmailOutlinedIcon sx={{ fontSize: 18, color: "#9333ea" }} />
+                    <EmailOutlinedIcon sx={{ fontSize: 16, color: "#9333ea" }} />
                     Your Email
                   </Typography>
                   <TextField
@@ -341,7 +342,7 @@ export default function Contact() {
                     sx={{
                       fontFamily: "'Inter', sans-serif",
                       fontWeight: 600,
-                      fontSize: "14px",
+                      fontSize: "13px",
                       color: "#374151",
                       mb: 1,
                       display: "flex",
@@ -349,7 +350,7 @@ export default function Contact() {
                       gap: 1,
                     }}
                   >
-                    <ChatBubbleOutlineOutlinedIcon sx={{ fontSize: 18, color: "#9333ea" }} />
+                    <ChatBubbleOutlineOutlinedIcon sx={{ fontSize: 16, color: "#9333ea" }} />
                     Subject
                   </Typography>
                   <TextField
@@ -371,7 +372,7 @@ export default function Contact() {
                 </Box>
 
                 <Box sx={{ bgcolor: "white", p: 2, borderRadius: "16px", boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.05)" }}>
-                  <Typography sx={{ fontFamily: "'Inter', sans-serif", fontWeight: 600, fontSize: "14px", color: "#374151", mb: 1 }}>
+                  <Typography sx={{ fontFamily: "'Inter', sans-serif", fontWeight: 600, fontSize: "13px", color: "#374151", mb: 1 }}>
                     Message
                   </Typography>
                   <TextField
@@ -396,16 +397,16 @@ export default function Contact() {
                 <Button
                   type="submit"
                   variant="contained"
-                  startIcon={<SendOutlinedIcon />}
+                  startIcon={<SendOutlinedIcon sx={{ fontSize: 18 }} />}
                   fullWidth
                   sx={{
                     bgcolor: "#1e293b",
                     color: "white",
-                    py: 2,
+                    py: 1.5,
                     borderRadius: "12px",
                     fontFamily: "'Inter', sans-serif",
                     fontWeight: 500,
-                    fontSize: "16px",
+                    fontSize: "15px",
                     textTransform: "none",
                     "&:hover": {
                       bgcolor: "#0f172a",

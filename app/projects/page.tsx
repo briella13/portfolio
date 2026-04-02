@@ -35,7 +35,7 @@ function SectionHeader({ icon, category, description }: { icon: React.ReactNode;
         sx={{
           fontFamily: "'Inter', sans-serif",
           fontWeight: 500,
-          fontSize: "36px",
+          fontSize: { xs: "28px", md: "32px" },
           color: "#1d293d",
         }}
       >
@@ -45,7 +45,7 @@ function SectionHeader({ icon, category, description }: { icon: React.ReactNode;
         sx={{
           fontFamily: "'Inter', sans-serif",
           fontStyle: "italic",
-          fontSize: "18px",
+          fontSize: { xs: "15px", md: "16px" },
           color: "#9810fa",
           mt: 1,
         }}
@@ -56,7 +56,7 @@ function SectionHeader({ icon, category, description }: { icon: React.ReactNode;
         <Typography
           sx={{
             fontFamily: "'Inter', sans-serif",
-            fontSize: "14px",
+            fontSize: "13px",
             color: "#45556c",
             mt: 1,
           }}
@@ -72,7 +72,7 @@ function ProjectCard({
   img,
   title,
   subtitle,
-  imgHeight = 280,
+  imgHeight = 240,
   large = false,
 }: {
   img: string;
@@ -107,7 +107,7 @@ function ProjectCard({
           sx={{
             fontFamily: "'Inter', sans-serif",
             fontWeight: 600,
-            fontSize: large ? "18px" : "14px",
+            fontSize: large ? "16px" : "14px",
             color: "#1d293d",
             lineHeight: 1.2,
           }}
@@ -117,7 +117,7 @@ function ProjectCard({
         <Typography
           sx={{
             fontFamily: "'Inter', sans-serif",
-            fontSize: large ? "14px" : "12px",
+            fontSize: large ? "13px" : "12px",
             color: "#62748e",
             mt: 1,
           }}
@@ -179,21 +179,21 @@ export default function Projects() {
               img="/images/about/655168047b24b59c07080f6bc16d25372d632d16.png"
               title="Lamborghini Poster"
               subtitle="Automotive Design"
-              imgHeight={500}
+              imgHeight={400}
               large
             />
             <ProjectCard
               img="/images/about/af32f8375e70c67135c3f15ae84bcbf73c48cfce.png"
               title="Baseball Tournament"
               subtitle="Sports Event"
-              imgHeight={500}
+              imgHeight={400}
               large
             />
             <ProjectCard
               img="/images/about/c6818435bf71880d6852b2d7de63dbef0dc8f8ab.png"
               title="Ferrari Poster"
               subtitle="Automotive Design"
-              imgHeight={500}
+              imgHeight={400}
               large
             />
           </Stack>
@@ -211,14 +211,14 @@ export default function Projects() {
               img="/images/about/5dcbff2017dae7c06ec548363a6feab63bfec27c.png"
               title="ZIPOOL"
               subtitle="Travel & Carpool Platform"
-              imgHeight={500}
+              imgHeight={400}
               large
             />
             <ProjectCard
               img="/images/about/5566e2d1b4ae45ccdc7f0e46353d091fe7296da3.png"
               title="MATCHA"
               subtitle="Japanese Beverage Brand"
-              imgHeight={500}
+              imgHeight={400}
               large
             />
           </Stack>
@@ -242,7 +242,7 @@ export default function Projects() {
                 sx={{
                   width: "100%",
                   bgcolor: "#f1f5f9",
-                  height: { xs: 300, md: 500 },
+                  height: { xs: 260, md: 400 },
                   position: "relative",
                 }}
               >
@@ -259,7 +259,7 @@ export default function Projects() {
                   sx={{
                     fontFamily: "'Inter', sans-serif",
                     fontWeight: 600,
-                    fontSize: "18px",
+                    fontSize: "16px",
                     color: "#1d293d",
                   }}
                 >
@@ -268,7 +268,7 @@ export default function Projects() {
                 <Typography
                   sx={{
                     fontFamily: "'Inter', sans-serif",
-                    fontSize: "14px",
+                    fontSize: "13px",
                     color: "#62748e",
                     mt: 1,
                   }}
