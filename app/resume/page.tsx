@@ -14,11 +14,11 @@ export default function Resume() {
     <Box
       sx={{
         width: "100%",
-        minHeight: "100vh",
+        minHeight: "calc(100vh - 100px)",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        py: { xs: 4, md: 8 },
+        py: { xs: 4, md: 4 },
         px: { xs: 2, md: 4 },
         bgcolor: "#f4f4f9", // Light background behind the resume paper
       }}
@@ -40,37 +40,37 @@ export default function Resume() {
             width: { xs: "100%", md: "35%" },
             bgcolor: "#858fa6", // Matches the grayish-blue background
             color: "#111827",
-            p: { xs: theme.spacing(4), md: theme.spacing(6) },
+            p: { xs: theme.spacing(4), md: theme.spacing(4) },
             display: "flex",
             flexDirection: "column",
-            gap: theme.spacing(6),
+            gap: theme.spacing(3),
           })}
         >
           {/* Profile Section */}
           <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
             <Box
               sx={{
-                width: "180px",
-                height: "180px",
+                width: "120px",
+                height: "120px",
                 borderRadius: "50%",
                 overflow: "hidden",
                 position: "relative",
-                mb: 3,
+                mb: 2,
                 border: "4px solid rgba(255,255,255,0.2)",
               }}
             >
               {/* Assuming there is a hero image, fallback to placeholder if not strictly available */}
-              <Image src="/images/projects/my-profile.png" alt="Mia Gabriella B. Gubat" fill sizes="180px" style={{ objectFit: "cover" }} />
+              <Image src="/images/projects/my-profile.png" alt="Mia Gabriella B. Gubat" fill sizes="120px" style={{ objectFit: "cover" }} />
             </Box>
             <Typography
               variant="h1"
               sx={{
                 fontFamily: "'Inter', sans-serif",
                 fontWeight: 600,
-                fontSize: "24px",
+                fontSize: "20px",
                 textAlign: "center",
                 color: "#111827",
-                mb: 4,
+                mb: 2,
                 textTransform: "uppercase",
               }}
             >
@@ -100,14 +100,14 @@ export default function Resume() {
               sx={{
                 fontFamily: "'Inter', sans-serif",
                 fontWeight: 600,
-                fontSize: "18px",
-                mb: 2,
+                fontSize: "16px",
+                mb: 1,
                 textTransform: "uppercase",
               }}
             >
               EDUCATION
             </Typography>
-            <Divider sx={{ borderColor: "rgba(255,255,255,0.3)", mb: 3 }} />
+            <Divider sx={{ borderColor: "rgba(255,255,255,0.3)", mb: 2 }} />
 
             <Stack direction="row" spacing={2} alignItems="flex-start">
               <Box
@@ -144,14 +144,14 @@ export default function Resume() {
               sx={{
                 fontFamily: "'Inter', sans-serif",
                 fontWeight: 600,
-                fontSize: "18px",
-                mb: 2,
+                fontSize: "16px",
+                mb: 1,
                 textTransform: "uppercase",
               }}
             >
               SKILLS
             </Typography>
-            <Divider sx={{ borderColor: "rgba(255,255,255,0.3)", mb: 3 }} />
+            <Divider sx={{ borderColor: "rgba(255,255,255,0.3)", mb: 2 }} />
 
             <Stack direction="row" flexWrap="wrap" gap={1.5}>
               {[
@@ -170,11 +170,11 @@ export default function Resume() {
                   sx={{
                     bgcolor: "rgba(255, 255, 255, 0.3)",
                     color: "#111827",
-                    px: 2,
-                    py: 0.75,
-                    borderRadius: "16px",
+                    px: 1.5,
+                    py: 0.5,
+                    borderRadius: "12px",
                     fontFamily: "'Inter', sans-serif",
-                    fontSize: "13px",
+                    fontSize: "12px",
                     fontWeight: 500,
                   }}
                 >
@@ -190,10 +190,10 @@ export default function Resume() {
           sx={(theme) => ({
             width: { xs: "100%", md: "65%" },
             bgcolor: "#ffffff",
-            p: { xs: theme.spacing(4), md: theme.spacing(8) },
+            p: { xs: theme.spacing(4), md: theme.spacing(4) },
             display: "flex",
             flexDirection: "column",
-            gap: theme.spacing(5),
+            gap: theme.spacing(3),
           })}
         >
           {/* Summary Section */}
@@ -210,7 +210,7 @@ export default function Resume() {
             >
               SUMMARY
             </Typography>
-            <Divider sx={{ borderColor: "#2563eb", borderBottomWidth: "2px", mb: 3 }} />
+            <Divider sx={{ borderColor: "#2563eb", borderBottomWidth: "2px", mb: 1.5 }} />
             <Typography
               sx={{
                 fontFamily: "'Inter', sans-serif",
@@ -238,7 +238,7 @@ export default function Resume() {
             >
               EXPERIENCE
             </Typography>
-            <Divider sx={{ borderColor: "#2563eb", borderBottomWidth: "2px", mb: 3 }} />
+            <Divider sx={{ borderColor: "#2563eb", borderBottomWidth: "2px", mb: 1.5 }} />
 
             <Stack direction="row" spacing={2} alignItems="flex-start">
               <Box
@@ -294,9 +294,9 @@ export default function Resume() {
             >
               PROJECTS
             </Typography>
-            <Divider sx={{ borderColor: "#2563eb", borderBottomWidth: "2px", mb: 3 }} />
+            <Divider sx={{ borderColor: "#2563eb", borderBottomWidth: "2px", mb: 1.5 }} />
 
-            <Stack spacing={4}>
+            <Stack spacing={2}>
               <Box>
                 <Typography
                   sx={{

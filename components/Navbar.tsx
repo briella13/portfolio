@@ -24,8 +24,11 @@ export function Navbar() {
         px: { xs: theme.spacing(3), md: theme.spacing(7.5) },
         pt: theme.spacing(3.75),
         pb: theme.spacing(2),
-        position: "relative",
+        position: "sticky",
+        top: 0,
         zIndex: 50,
+        backgroundColor: "rgba(255, 255, 255, 0.7)",
+        backdropFilter: "blur(10px)",
       })}
     >
       <Stack

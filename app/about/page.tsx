@@ -31,15 +31,18 @@ export default function About() {
     <Box
       sx={{
         width: "100%",
-        minHeight: "100vh",
+        minHeight: "calc(100vh - 100px)",
+        display: "flex",
+        alignItems: "center",
       }}
     >
       <Box
         sx={(theme) => ({
           maxWidth: "1400px",
+          width: "100%",
           mx: "auto",
           px: { xs: theme.spacing(3), md: theme.spacing(5) },
-          py: { xs: theme.spacing(6), md: theme.spacing(6) },
+          py: { xs: theme.spacing(4), md: theme.spacing(4) },
         })}
       >
         {/* Header decoration */}
@@ -100,7 +103,7 @@ export default function About() {
         </Box>
 
         {/* Main two-column */}
-        <Stack direction={{ xs: "column", lg: "row" }} spacing={4} alignItems="stretch" sx={{ minHeight: { lg: "727px" } }}>
+        <Stack direction={{ xs: "column", lg: "row" }} spacing={4} alignItems="stretch">
           {/* Bio card */}
           <Box
             sx={(theme) => ({
@@ -109,7 +112,7 @@ export default function About() {
               borderRadius: "24px",
               boxShadow: "0px 10px 15px 0px rgba(0,0,0,0.1), 0px 4px 6px 0px rgba(0,0,0,0.1)",
               px: { xs: theme.spacing(4), md: theme.spacing(5) },
-              py: { xs: theme.spacing(4), md: theme.spacing(6) },
+              py: { xs: theme.spacing(4), md: theme.spacing(5) },
               display: "flex",
               alignItems: "center",
             })}
@@ -117,7 +120,7 @@ export default function About() {
             <Typography
               sx={{
                 fontFamily: "'Inter', sans-serif",
-                fontSize: { xs: "18px", md: "24px" },
+                fontSize: { xs: "18px", md: "20px", xl: "24px" },
                 color: "#314158",
                 lineHeight: 1.6,
               }}
@@ -147,8 +150,8 @@ export default function About() {
                 sx={(theme) => ({
                   borderRadius: "16px",
                   boxShadow: "0px 4px 6px 0px rgba(0,0,0,0.1), 0px 2px 4px 0px rgba(0,0,0,0.1)",
-                  p: theme.spacing(2.5),
-                  height: "120px",
+                  p: { xs: theme.spacing(2.5), md: theme.spacing(2) },
+                  minHeight: "100px",
                   backgroundImage: "linear-gradient(to right, #f3e8ff, #dbeafe)",
                 })}
               >
@@ -157,8 +160,8 @@ export default function About() {
                     bgcolor: "white",
                     borderRadius: "14px",
                     boxShadow: "0px 4px 6px 0px rgba(0,0,0,0.1), 0px 2px 4px 0px rgba(0,0,0,0.1)",
-                    width: "80px",
-                    height: "80px",
+                    width: "70px",
+                    height: "70px",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
@@ -166,8 +169,8 @@ export default function About() {
                     position: "relative",
                   }}
                 >
-                  <Box sx={{ position: "relative", width: "64px", height: "64px" }}>
-                    <Image src={card.img} alt={card.alt} fill sizes="64px" style={{ objectFit: "contain" }} />
+                  <Box sx={{ position: "relative", width: "48px", height: "48px" }}>
+                    <Image src={card.img} alt={card.alt} fill sizes="48px" style={{ objectFit: "contain" }} />
                   </Box>
                 </Box>
                 <Box>

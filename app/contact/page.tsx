@@ -35,11 +35,11 @@ export default function Contact() {
     <Box
       sx={{
         width: "100%",
-        minHeight: "100vh",
+        minHeight: "calc(100vh - 100px)",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        py: { xs: 4, md: 8 },
+        py: { xs: 4, md: 4 },
         px: { xs: 2, md: 4 },
         bgcolor: "#f4f4f9",
       }}
@@ -59,13 +59,13 @@ export default function Contact() {
           sx={{
             width: { xs: "100%", md: "35%" },
             background: "linear-gradient(135deg, #c4cce8 0%, #78829f 100%)",
-            p: { xs: 4, md: 8 },
+            p: { xs: 4, md: 4 },
             display: "flex",
             flexDirection: "column",
             color: "#111827",
           }}
         >
-          <Box sx={{ mb: 6 }}>
+          <Box sx={{ mb: 4 }}>
             <Box
               sx={{
                 height: "3px",
@@ -97,20 +97,20 @@ export default function Contact() {
             </Typography>
           </Box>
 
-          <Box sx={{ mb: 6 }}>
+          <Box sx={{ mb: 4 }}>
             <Typography
               variant="h3"
               sx={{
                 fontFamily: "'Inter', sans-serif",
                 fontWeight: 600,
                 fontSize: "18px",
-                mb: 3,
+                mb: 2,
               }}
             >
               Contact Information
             </Typography>
 
-            <Stack spacing={3}>
+            <Stack spacing={2}>
               <Stack direction="row" spacing={2} alignItems="center">
                 <Box
                   sx={{
@@ -225,7 +225,7 @@ export default function Contact() {
           sx={{
             width: { xs: "100%", md: "65%" },
             bgcolor: "#f8fafd",
-            p: { xs: 4, md: 8, lg: 12 },
+            p: { xs: 4, md: 4, lg: 6 },
             display: "flex",
             flexDirection: "column",
           }}
@@ -258,7 +258,7 @@ export default function Contact() {
                 fontFamily: "'Inter', sans-serif",
                 fontSize: "15px",
                 color: "#4b5563",
-                mb: 6,
+                mb: 3,
                 lineHeight: 1.6,
               }}
             >
@@ -266,8 +266,8 @@ export default function Contact() {
             </Typography>
 
             <Box component="form" onSubmit={handleSubmit}>
-              <Stack spacing={4}>
-                <Box sx={{ bgcolor: "white", p: 3, borderRadius: "16px", boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.05)" }}>
+              <Stack spacing={2}>
+                <Box sx={{ bgcolor: "white", p: 2, borderRadius: "16px", boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.05)" }}>
                   <Typography
                     sx={{
                       fontFamily: "'Inter', sans-serif",
@@ -301,7 +301,7 @@ export default function Contact() {
                   />
                 </Box>
 
-                <Box sx={{ bgcolor: "white", p: 3, borderRadius: "16px", boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.05)" }}>
+                <Box sx={{ bgcolor: "white", p: 2, borderRadius: "16px", boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.05)" }}>
                   <Typography
                     sx={{
                       fontFamily: "'Inter', sans-serif",
@@ -336,7 +336,7 @@ export default function Contact() {
                   />
                 </Box>
 
-                <Box sx={{ bgcolor: "white", p: 3, borderRadius: "16px", boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.05)" }}>
+                <Box sx={{ bgcolor: "white", p: 2, borderRadius: "16px", boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.05)" }}>
                   <Typography
                     sx={{
                       fontFamily: "'Inter', sans-serif",
@@ -370,7 +370,7 @@ export default function Contact() {
                   />
                 </Box>
 
-                <Box sx={{ bgcolor: "white", p: 3, borderRadius: "16px", boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.05)" }}>
+                <Box sx={{ bgcolor: "white", p: 2, borderRadius: "16px", boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.05)" }}>
                   <Typography sx={{ fontFamily: "'Inter', sans-serif", fontWeight: 600, fontSize: "14px", color: "#374151", mb: 1 }}>
                     Message
                   </Typography>
@@ -382,7 +382,7 @@ export default function Contact() {
                     onChange={handleChange}
                     variant="outlined"
                     multiline
-                    rows={4}
+                    rows={3}
                     required
                     sx={{
                       "& .MuiOutlinedInput-root": {
