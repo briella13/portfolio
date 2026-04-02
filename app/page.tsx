@@ -23,6 +23,8 @@ export default function Home() {
           maxWidth: "1440px",
           mx: "auto",
           px: { xs: 2, md: "44px" },
+          display: "flex",
+          flexDirection: { xs: "column", md: "block" },
         }}
       >
         {/* PORTFOLIO watermark text */}
@@ -43,7 +45,7 @@ export default function Home() {
               fontWeight: "bold",
               color: "#0a0a0a",
               whiteSpace: "nowrap",
-              fontSize: "clamp(80px, 12vw, 180px)",
+              fontSize: { xs: "clamp(32px, 11.5vw, 80px)", md: "clamp(80px, 12vw, 180px)" },
               lineHeight: 1,
             }}
           >
@@ -54,22 +56,26 @@ export default function Home() {
         {/* Character illustration */}
         <Box
           sx={{
-            position: "absolute",
-            right: 0,
-            top: 0,
+            position: { xs: "relative", md: "absolute" },
+            right: { xs: "auto", md: 0 },
+            top: { xs: "auto", md: 0 },
             pointerEvents: "none",
-            width: "min(691px, 50vw)",
-            height: "min(908px, 120vw)",
+            width: { xs: "100%", md: "min(691px, 50vw)" },
+            height: { xs: "400px", md: "min(908px, 120vw)" },
             zIndex: 1,
+            order: { xs: 2, md: "unset" },
+            mt: { xs: -2, md: 0 },
+            display: "flex",
+            justifyContent: { xs: "center", md: "flex-start" },
           }}
         >
           <Box
             sx={{
               position: "relative",
-              width: "132.51%",
-              height: "151.19%",
-              left: "-15.21%",
-              top: "-19.63%",
+              width: { xs: "280px", md: "132.51%" },
+              height: { xs: "360px", md: "151.19%" },
+              left: { xs: 0, md: "-15.21%" },
+              top: { xs: 0, md: "-19.63%" },
             }}
           >
             <Image
@@ -88,8 +94,9 @@ export default function Home() {
           spacing={3}
           sx={{
             position: "relative",
-            pt: { xs: "80px", sm: "140px", md: "370px" },
+            pt: { xs: "120px", sm: "140px", md: "370px" },
             zIndex: 2,
+            order: { xs: 1, md: "unset" },
           }}
         >
           <Box>
@@ -137,7 +144,7 @@ export default function Home() {
             I am a creative Graphic and UI/UX Designer who transforms ideas into engaging visuals and intuitive digital experiences
           </Typography>
 
-          <Stack direction="row" flexWrap="wrap" gap={2.5} pb={10}>
+          <Stack direction="row" flexWrap="wrap" gap={2.5} pb={{ xs: 4, md: 10 }}>
             <Button
               component={Link}
               href="/contact"

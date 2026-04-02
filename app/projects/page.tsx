@@ -10,8 +10,8 @@ import FactCheckOutlinedIcon from "@mui/icons-material/FactCheckOutlined";
 
 function SectionHeader({ icon, category, description }: { icon: React.ReactNode; category: string; description?: string }) {
   return (
-    <Box sx={{ textAlign: "center", mb: 8 }}>
-      <Stack direction="row" alignItems="center" justifyContent="center" gap={3} sx={{ mb: 4 }}>
+    <Box sx={{ textAlign: "center", mb: 6 }}>
+      <Stack direction="row" alignItems="center" justifyContent="center" gap={3} sx={{ mb: 2 }}>
         <Box
           sx={{
             height: "4px",
@@ -31,23 +31,12 @@ function SectionHeader({ icon, category, description }: { icon: React.ReactNode;
         />
       </Stack>
       <Typography
-        variant="h2"
+        variant="h3"
         sx={{
           fontFamily: "'Inter', sans-serif",
-          fontWeight: 500,
-          fontSize: { xs: "28px", md: "32px" },
+          fontWeight: 600,
+          fontSize: { xs: "24px", md: "28px" },
           color: "#1d293d",
-        }}
-      >
-        My Projects
-      </Typography>
-      <Typography
-        sx={{
-          fontFamily: "'Inter', sans-serif",
-          fontStyle: "italic",
-          fontSize: { xs: "15px", md: "16px" },
-          color: "#9810fa",
-          mt: 1,
         }}
       >
         {category}
@@ -88,7 +77,7 @@ function ProjectCard({
         borderRadius: "16px",
         boxShadow: "0px 10px 15px -3px rgba(0,0,0,0.1), 0px 4px 6px -4px rgba(0,0,0,0.1)",
         overflow: "hidden",
-        flex: "1 1 0",
+        flex: { xs: "none", md: "1 1 0" },
         minWidth: 0,
       }}
     >
@@ -146,9 +135,22 @@ export default function Projects() {
           py: { xs: theme.spacing(6), md: theme.spacing(12) },
           display: "flex",
           flexDirection: "column",
-          gap: { xs: theme.spacing(10), md: theme.spacing(20) },
+          gap: { xs: theme.spacing(8), md: theme.spacing(12) },
         })}
       >
+        <Typography
+          variant="h2"
+          sx={{
+            fontFamily: "'Inter', sans-serif",
+            fontWeight: 700,
+            fontSize: { xs: "36px", md: "48px" },
+            color: "#1d293d",
+            textAlign: "center",
+          }}
+        >
+          My Projects
+        </Typography>
+
         {/* Invitation Cards */}
         <Box component="section">
           <SectionHeader
