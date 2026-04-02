@@ -56,7 +56,7 @@ export function Navbar() {
                   textDecoration: "none",
                   fontFamily: "'Crimson Text', sans-serif",
                   fontWeight: "bold",
-                  fontSize: { xs: "24px", md: "32px" },
+                  fontSize: { xs: "24px", md: "24px" },
                   color: isActive ? "#9810fa" : "#0a0909",
                   transition: "color 0.2s ease",
                   "&:hover": {
