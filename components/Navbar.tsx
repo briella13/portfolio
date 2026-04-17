@@ -47,7 +47,7 @@ export function Navbar() {
           onClick={handleDrawerToggle}
           sx={{ display: { md: "none" }, color: "#0a0909" }}
         >
-          <MenuIcon sx={{ fontSize: 15 }} />
+          <MenuIcon sx={{ fontSize: 38 }} />
         </IconButton>
 
         {/* Desktop Navigation */}
