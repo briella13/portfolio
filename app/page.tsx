@@ -32,7 +32,7 @@ export default function Home() {
           sx={{
             position: "absolute",
             left: 0,
-            top: 0,
+            top: { xs: "28px", md: "88px" },
             overflow: "hidden",
             pointerEvents: "none",
             userSelect: "none",
@@ -45,7 +45,10 @@ export default function Home() {
               fontWeight: "bold",
               color: "#0a0a0a",
               whiteSpace: "nowrap",
-              fontSize: { xs: "clamp(32px, 11.5vw, 80px)", md: "clamp(80px, 12vw, 180px)" },
+              fontSize: {
+                xs: "clamp(32px, 11.5vw, 80px)",
+                md: "clamp(56px, 8.8vw, 152px)",
+              },
               lineHeight: 1,
             }}
           >
@@ -57,11 +60,11 @@ export default function Home() {
         <Box
           sx={{
             position: { xs: "relative", md: "absolute" },
-            right: { xs: "auto", md: 0 },
-            top: { xs: "auto", md: 0 },
+            right: { xs: "auto", md: "-118px" },
+            top: { xs: "auto", md: "36px" },
             pointerEvents: "none",
-            width: { xs: "100%", md: "min(691px, 50vw)" },
-            height: { xs: "400px", md: "min(908px, 120vw)" },
+            width: { xs: "100%", md: "min(740px, 52vw)" },
+            height: { xs: "340px", md: "min(920px, 116vw)" },
             zIndex: 1,
             order: { xs: 2, md: "unset" },
             mt: { xs: -2, md: 0 },
@@ -72,10 +75,10 @@ export default function Home() {
           <Box
             sx={{
               position: "relative",
-              width: { xs: "280px", md: "132.51%" },
-              height: { xs: "360px", md: "151.19%" },
-              left: { xs: 0, md: "-15.21%" },
-              top: { xs: 0, md: "-19.63%" },
+              width: { xs: "240px", md: "136%" },
+              height: { xs: "310px", md: "156%" },
+              left: { xs: 0, md: "-9%" },
+              top: { xs: 0, md: "-10%" },
             }}
           >
             <Image
@@ -83,8 +86,8 @@ export default function Home() {
               alt="Mia – Portfolio Character"
               fill
               priority
-              sizes="(max-width: 768px) 100vw, 50vw"
-              style={{ objectFit: "cover" }}
+              sizes="(max-width: 668px) 80vw, 43vw"
+              style={{ objectFit: "cover", objectPosition: "center top" }}
             />
           </Box>
         </Box>
@@ -141,10 +144,16 @@ export default function Home() {
               wordWrap: "break-word",
             }}
           >
-            I am a creative Graphic and UI/UX Designer who transforms ideas into engaging visuals and intuitive digital experiences
+            I am a creative Graphic and UI/UX Designer who transforms ideas into
+            engaging visuals and intuitive digital experiences
           </Typography>
 
-          <Stack direction="row" flexWrap="wrap" gap={2.5} pb={{ xs: 4, md: 10 }}>
+          <Stack
+            direction="row"
+            flexWrap="wrap"
+            gap={2.5}
+            pb={{ xs: 4, md: 10 }}
+          >
             <Button
               component={Link}
               href="/contact"
@@ -168,6 +177,9 @@ export default function Home() {
               CONTACT ME
             </Button>
             <Button
+              component="a"
+              href="/resume.pdf"
+              download="Mia-Gabriella-Gubat-Resume.pdf"
               sx={{
                 bgcolor: "#03014c",
                 color: "white",
