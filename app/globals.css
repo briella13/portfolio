@@ -2,10 +2,11 @@
 
 :root {
   --background: linear-gradient(
-    to right,
+    135deg,
     #f8fafc 0%,
-    #eff6ff 50%,
-    #faf5ff 100%
+    #f3e8ff 35%,
+    #eef2ff 68%,
+    #fdf2f8 100%
   );
   --foreground: #171717;
 }
@@ -23,8 +24,28 @@
   font-family: var(--font-geist-sans) !important;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  background: var(--background);
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(196, 181, 253, 0.24),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 18% 18%,
+      rgba(168, 85, 247, 0.16),
+      transparent 26%
+    ),
+    radial-gradient(
+      circle at bottom left,
+      rgba(147, 197, 253, 0.22),
+      transparent 28%
+    ),
+    var(--background);
   color: var(--foreground);
   font-family: var(--font-geist-sans), sans-serif;
 }
