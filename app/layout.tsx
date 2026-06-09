@@ -10,8 +10,8 @@ const geistSans = Geist({
 });
 
 export const metadata: Metadata = {
-  title: "Mia's Portfolio",
-  description: "Graphic Designer and UI/UX Designer Portfolio",
+  title: "Mia Gabriella B. Gubat | Portfolio",
+  description: "Modern portfolio for a Graphic Designer and UI/UX Designer",
 };
 
 export default function RootLayout({
