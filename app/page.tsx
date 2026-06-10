@@ -131,7 +131,7 @@ const projectCards: ProjectCard[] = [
 const timeline = [
   {
     title: "Computer Communication Development Institute",
-    meta: "Education · 2022 – 2026",
+    meta: "Education · 2022 – Present",
     description:
       "Building design and technical foundations while sharpening UI/UX thinking.",
   },
