@@ -813,7 +813,7 @@ export default function Home() {
                     { icon: <PhoneOutlinedIcon />, value: "09859851189" },
                     {
                       icon: <MailOutlineIcon />,
-                      value: "gubatmiagabriella@gmail.com",
+                      value: "gubatmia13@gmail.com",
                     },
                   ].map((item) => (
                     <Stack
@@ -1007,7 +1007,7 @@ export default function Home() {
                   {
                     icon: <MailOutlineIcon />,
                     title: "Email",
-                    value: "gubatmiagabriella@gmail.com",
+                    value: "gubatmia13@gmail.com",
                   },
                 ].map((item) => (
                   <Stack
@@ -1055,7 +1055,7 @@ export default function Home() {
               <Stack direction="row" flexWrap="wrap" gap={1.5} sx={{ mt: 4 }}>
                 <Button
                   component="a"
-                  href="mailto:gubatmiagabriella@gmail.com"
+                  href="mailto:gubatmia13@gmail.com"
                   sx={{
                     px: 3,
                     py: 1.3,
