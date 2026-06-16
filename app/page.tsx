@@ -1,15 +1,19 @@
-import type { ReactNode } from "react";
+"use client";
+
+import { useState, type ReactNode } from "react";
 import Image from "next/image";
 import {
   Box,
   Button,
   Chip,
+  Dialog,
   Divider,
   IconButton,
   Stack,
   Typography,
 } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import CloseIcon from "@mui/icons-material/Close";
 import DownloadIcon from "@mui/icons-material/Download";
 import BrushOutlinedIcon from "@mui/icons-material/BrushOutlined";
 import DashboardCustomizeOutlinedIcon from "@mui/icons-material/DashboardCustomizeOutlined";
@@ -273,55 +277,122 @@ function Pills({ items }: { items: readonly string[] }) {
 }
 
 function ProjectTile({ title, category, image, description }: ProjectCard) {
+  const [open, setOpen] = useState(false);
+
   return (
-    <SurfaceCard sx={{ overflow: "hidden", height: "100%" }}>
-      <Box
+    <>
+      <SurfaceCard
         sx={{
-          position: "relative",
-          height: { xs: 220, md: 260 },
-          backgroundColor: "#e2e8f0",
+          overflow: "hidden",
+          height: "100%",
+          cursor: "pointer",
+          transition: "transform 0.2s ease-in-out",
+          "&:hover": { transform: "scale(1.02)" },
         }}
       >
-        <Image
-          src={image}
-          alt={title}
-          fill
-          sizes="(max-width: 768px) 100vw, 33vw"
-          style={{ objectFit: "cover" }}
-        />
+        <Box
+          onClick={() => setOpen(true)}
+          sx={{ height: "100%", display: "flex", flexDirection: "column" }}
+        >
+          <Box
+            sx={{
+              position: "relative",
+              height: { xs: 220, md: 260 },
+              backgroundColor: "#e2e8f0",
+              flexShrink: 0,
+            }}
+          >
+            <Image
+              src={image}
+              alt={title}
+              fill
+              sizes="(max-width: 768px) 100vw, 33vw"
+              style={{ objectFit: "cover" }}
+            />
+            <Box
+              sx={{
+                position: "absolute",
+                inset: 0,
+                background:
+                  "linear-gradient(180deg, transparent 0%, rgba(15,23,42,0.14) 100%)",
+              }}
+            />
+          </Box>
+          <Box sx={{ p: 3, flexGrow: 1 }}>
+            <Typography
+              sx={{
+                fontSize: 12,
+                fontWeight: 800,
+                letterSpacing: "0.14em",
+                textTransform: "uppercase",
+                color: "#7c3aed",
+              }}
+            >
+              {category}
+            </Typography>
+            <Typography
+              sx={{ mt: 1, fontSize: 18, fontWeight: 800, color: "#0f172a" }}
+            >
+              {title}
+            </Typography>
+            <Typography
+              sx={{ mt: 1, color: "#475569", lineHeight: 1.7, fontSize: 14 }}
+            >
+              {description}
+            </Typography>
+          </Box>
+        </Box>
+      </SurfaceCard>
+
+      <Dialog
+        open={open}
+        onClose={() => setOpen(false)}
+        maxWidth="lg"
+        fullWidth
+        PaperProps={{
+          sx: {
+            backgroundColor: "transparent",
+            boxShadow: "none",
+            overflow: "hidden",
+          },
+        }}
+      >
         <Box
           sx={{
-            position: "absolute",
-            inset: 0,
-            background:
-              "linear-gradient(180deg, transparent 0%, rgba(15,23,42,0.14) 100%)",
-          }}
-        />
-      </Box>
-      <Box sx={{ p: 3 }}>
-        <Typography
-          sx={{
-            fontSize: 12,
-            fontWeight: 800,
-            letterSpacing: "0.14em",
-            textTransform: "uppercase",
-            color: "#7c3aed",
+            position: "relative",
+            width: "100%",
+            height: "85vh",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
           }}
         >
-          {category}
-        </Typography>
-        <Typography
-          sx={{ mt: 1, fontSize: 18, fontWeight: 800, color: "#0f172a" }}
-        >
-          {title}
-        </Typography>
-        <Typography
-          sx={{ mt: 1, color: "#475569", lineHeight: 1.7, fontSize: 14 }}
-        >
-          {description}
-        </Typography>
-      </Box>
-    </SurfaceCard>
+          <IconButton
+            onClick={() => setOpen(false)}
+            sx={{
+              position: "absolute",
+              top: 8,
+              right: 8,
+              zIndex: 10,
+              color: "white",
+              backgroundColor: "rgba(0,0,0,0.5)",
+              "&:hover": { backgroundColor: "rgba(0,0,0,0.8)" },
+            }}
+          >
+            <CloseIcon />
+          </IconButton>
+          <Box sx={{ position: "relative", width: "100%", height: "100%" }}>
+            <Image
+              src={image}
+              alt={title}
+              fill
+              style={{ objectFit: "contain" }}
+              sizes="100vw"
+            />
+          </Box>
+        </Box>
+      </Dialog>
+    </>
   );
 }
 
@@ -339,7 +410,7 @@ export default function Home() {
         }}
       />
 
-      <Box id="home" sx={{ scrollMarginTop: "120px" }} />
+      <Box id="home" sx={{ scrollMarginTop: "120px", pt: 1 }} />
 
       <Box
         sx={{

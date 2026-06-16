@@ -16,11 +16,11 @@ import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 
 const navItems = [
-  { label: "Home", href: "/#home", hash: "#home" },
-  { label: "About", href: "/#about", hash: "#about" },
-  { label: "Work", href: "/#projects", hash: "#projects" },
-  { label: "Resume", href: "/#resume", hash: "#resume" },
-  { label: "Contact", href: "/#contact", hash: "#contact" },
+  { label: "Home", href: "#home", hash: "#home" },
+  { label: "About", href: "#about", hash: "#about" },
+  { label: "Work", href: "#projects", hash: "#projects" },
+  { label: "Resume", href: "#resume", hash: "#resume" },
+  { label: "Contact", href: "#contact", hash: "#contact" },
 ];
 
 const sectionHashes = ["#home", "#about", "#projects", "#resume", "#contact"];
@@ -36,20 +36,42 @@ export function Navbar() {
 
   useEffect(() => {
     const updateHash = () => setActiveHash(window.location.hash || "#home");
+
+    // Keep track of the intersection ratio for all sections
+    const visibleSections = new Map<string, number>();
+
     const observer = new IntersectionObserver(
       (entries) => {
-        const visibleEntry = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        entries.forEach((entry) => {
+          if (entry.target.id) {
+            visibleSections.set(
+              `#${entry.target.id}`,
+              entry.isIntersecting ? entry.intersectionRatio : 0,
+            );
+          }
+        });
 
-        if (visibleEntry?.target instanceof HTMLElement) {
-          setActiveHash(`#${visibleEntry.target.id}`);
+        let bestHash = activeHash;
+        let maxRatio = 0;
+
+        // Find the section that takes up the most space on the screen
+        visibleSections.forEach((ratio, hash) => {
+          if (ratio > maxRatio) {
+            maxRatio = ratio;
+            bestHash = hash;
+          }
+        });
+
+        if (maxRatio > 0) {
+          setActiveHash(bestHash);
         }
       },
       {
         root: null,
-        threshold: [0.25, 0.4, 0.6],
-        rootMargin: "-20% 0px -55% 0px",
+        // Check more frequently as the user scrolls
+        threshold: [0.1, 0.25, 0.5, 0.75, 1.0],
+        // Adjust margin to better detect the top part of the screen
+        rootMargin: "-80px 0px -20% 0px",
       },
     );
 
@@ -68,7 +90,7 @@ export function Navbar() {
       observer.disconnect();
       window.removeEventListener("hashchange", updateHash);
     };
-  }, []);
+  }, [activeHash]);
 
   const isActive = (hash: string) => pathname === "/" && activeHash === hash;
 
@@ -104,7 +126,7 @@ export function Navbar() {
       >
         <Typography
           component={Link}
-          href="/#home"
+          href="#home"
           sx={{
             textDecoration: "none",
             fontSize: { xs: "14px", md: "16px" },
