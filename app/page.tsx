@@ -126,6 +126,13 @@ const projectCards: ProjectCard[] = [
     image: "/images/about/5566e2d1b4ae45ccdc7f0e46353d091fe7296da3.png",
     description: "A Japanese beverage brand concept with a polished UI system.",
   },
+  {
+    title: "MATCHA Branding",
+    category: "Web Design",
+    image: "/images/projects/branding.png",
+    description:
+      "A matcha beverage brand concept with a polished branding design.",
+  },
 ];
 
 const timeline = [
