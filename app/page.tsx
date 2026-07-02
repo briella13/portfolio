@@ -324,6 +324,7 @@ function ProjectTile({ title, category, image, description }: ProjectCard) {
               src={image}
               alt={title}
               fill
+              quality={100}
               sizes="(max-width: 768px) 100vw, 33vw"
               style={{ objectFit: "cover" }}
             />
@@ -404,6 +405,7 @@ function ProjectTile({ title, category, image, description }: ProjectCard) {
               src={image}
               alt={title}
               fill
+              quality={100}
               style={{ objectFit: "contain" }}
               sizes="100vw"
             />
@@ -622,6 +624,7 @@ export default function Home() {
                 alt="Mia portfolio hero illustration"
                 fill
                 priority
+                quality={100}
                 sizes="(max-width: 1024px) 100vw, 48vw"
                 style={{ objectFit: "cover", objectPosition: "center top" }}
               />
