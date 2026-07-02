@@ -61,6 +61,24 @@ const featureCards: FeatureCard[] = [
 
 const projectCards: ProjectCard[] = [
   {
+    title: "Fashion Hub Sale",
+    category: "Poster Design",
+    image: "/images/projects/fashion.png",
+    description: "A bold fashion sale promotional poster with a warm color palette.",
+  },
+  {
+    title: "Winter Collection",
+    category: "Poster Design",
+    image: "/images/projects/jmcy.png",
+    description: "A seasonal fashion promotional poster highlighting winter wear.",
+  },
+  {
+    title: "Sony Headphones Max",
+    category: "Social Media Design",
+    image: "/images/projects/Social Media Design.png",
+    description: "A promotional social media graphic for Sony headphones with a modern layout.",
+  },
+  {
     title: "Kyla's 24th Birthday",
     category: "Invitation Design",
     image: "/images/projects/kyla-invitation.png",
