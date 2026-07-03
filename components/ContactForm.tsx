@@ -81,6 +81,28 @@ export function ContactForm() {
     }, 1800);
   };
 
+  const textFieldStyles = {
+    "& .MuiOutlinedInput-root": {
+      borderRadius: "16px",
+      backgroundColor: "var(--form-input-bg)",
+      color: "var(--text-primary)",
+      "& fieldset": {
+        borderColor: "var(--card-border)",
+        transition: "border-color 0.3s ease",
+      },
+      "&:hover fieldset": { borderColor: "#a855f7" },
+      "&.Mui-focused fieldset": { borderColor: "#7c3aed" },
+    },
+    "& .MuiInputLabel-root": {
+      color: "var(--text-secondary)",
+      "&.Mui-focused": { color: "#7c3aed" },
+    },
+    "& .MuiFormHelperText-root": {
+      color: "#ef4444",
+      fontWeight: 500,
+    },
+  };
+
   if (status === "success") {
     return (
       <SurfaceCard
@@ -96,10 +118,10 @@ export function ContactForm() {
         }}
       >
         <CheckCircleOutlineIcon sx={{ fontSize: 72, color: "#10b981", mb: 3 }} />
-        <Typography variant="h5" sx={{ fontWeight: 800, color: "#0f172a", mb: 1 }}>
+        <Typography variant="h5" sx={{ fontWeight: 800, color: "var(--text-primary)", mb: 1 }}>
           Message Sent Successfully!
         </Typography>
-        <Typography sx={{ color: "#64748b", maxWidth: 360, mb: 4, lineHeight: 1.6 }}>
+        <Typography sx={{ color: "var(--text-secondary)", maxWidth: 360, mb: 4, lineHeight: 1.6 }}>
           Thank you for reaching out. Mia will get back to you as soon as possible.
         </Typography>
         <Button
@@ -126,10 +148,10 @@ export function ContactForm() {
 
   return (
     <SurfaceCard sx={{ p: { xs: 3, md: 4 } }}>
-      <Typography variant="h5" sx={{ fontSize: 22, fontWeight: 900, color: "#0f172a", mb: 1 }}>
+      <Typography variant="h5" sx={{ fontSize: 22, fontWeight: 900, color: "var(--text-primary)", mb: 1 }}>
         Send a Message
       </Typography>
-      <Typography sx={{ color: "#64748b", mb: 3, fontSize: "14px" }}>
+      <Typography sx={{ color: "var(--text-secondary)", mb: 3, fontSize: "14px" }}>
         Interested in working together or want to discuss a design? Let's connect.
       </Typography>
 
@@ -149,14 +171,7 @@ export function ContactForm() {
                 style: { fontWeight: 600 },
               },
             }}
-            sx={{
-              "& .MuiOutlinedInput-root": {
-                borderRadius: "16px",
-                backgroundColor: "rgba(255, 255, 255, 0.4)",
-                "&:hover fieldset": { borderColor: "#a855f7" },
-                "&.Mui-focused fieldset": { borderColor: "#7c3aed" },
-              },
-            }}
+            sx={textFieldStyles}
           />
 
           <TextField
@@ -174,14 +189,7 @@ export function ContactForm() {
                 style: { fontWeight: 600 },
               },
             }}
-            sx={{
-              "& .MuiOutlinedInput-root": {
-                borderRadius: "16px",
-                backgroundColor: "rgba(255, 255, 255, 0.4)",
-                "&:hover fieldset": { borderColor: "#a855f7" },
-                "&.Mui-focused fieldset": { borderColor: "#7c3aed" },
-              },
-            }}
+            sx={textFieldStyles}
           />
 
           <TextField
@@ -200,14 +208,7 @@ export function ContactForm() {
                 style: { fontWeight: 600 },
               },
             }}
-            sx={{
-              "& .MuiOutlinedInput-root": {
-                borderRadius: "16px",
-                backgroundColor: "rgba(255, 255, 255, 0.4)",
-                "&:hover fieldset": { borderColor: "#a855f7" },
-                "&.Mui-focused fieldset": { borderColor: "#7c3aed" },
-              },
-            }}
+            sx={textFieldStyles}
           />
 
           <Button

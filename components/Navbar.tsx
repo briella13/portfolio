@@ -14,30 +14,35 @@ import {
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
+import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
+import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
 
 const navItems = [
   { label: "Home", href: "#home", hash: "#home" },
   { label: "About", href: "#about", hash: "#about" },
   { label: "Work", href: "#projects", hash: "#projects" },
+  { label: "Tools", href: "#tools", hash: "#tools" },
   { label: "Resume", href: "#resume", hash: "#resume" },
   { label: "Contact", href: "#contact", hash: "#contact" },
 ];
 
-const sectionHashes = ["#home", "#about", "#projects", "#resume", "#contact"];
+const sectionHashes = ["#home", "#about", "#projects", "#tools", "#resume", "#contact"];
 
 export function Navbar() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeHash, setActiveHash] = useState("#home");
+  const [theme, setTheme] = useState<"light" | "dark" | null>(null);
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
   };
 
   useEffect(() => {
-    const updateHash = () => setActiveHash(window.location.hash || "#home");
+    const currentTheme = (document.documentElement.getAttribute("data-theme") as "light" | "dark") || "light";
+    setTheme(currentTheme);
 
-    // Keep track of the intersection ratio for all sections
+    const updateHash = () => setActiveHash(window.location.hash || "#home");
     const visibleSections = new Map<string, number>();
 
     const observer = new IntersectionObserver(
@@ -54,7 +59,6 @@ export function Navbar() {
         let bestHash = activeHash;
         let maxRatio = 0;
 
-        // Find the section that takes up the most space on the screen
         visibleSections.forEach((ratio, hash) => {
           if (ratio > maxRatio) {
             maxRatio = ratio;
@@ -68,9 +72,7 @@ export function Navbar() {
       },
       {
         root: null,
-        // Check more frequently as the user scrolls
         threshold: [0.1, 0.25, 0.5, 0.75, 1.0],
-        // Adjust margin to better detect the top part of the screen
         rootMargin: "-80px 0px -20% 0px",
       },
     );
@@ -78,10 +80,7 @@ export function Navbar() {
     updateHash();
     sectionHashes.forEach((hash) => {
       const section = document.querySelector(hash);
-
-      if (section) {
-        observer.observe(section);
-      }
+      if (section) observer.observe(section);
     });
 
     window.addEventListener("hashchange", updateHash);
@@ -91,6 +90,14 @@ export function Navbar() {
       window.removeEventListener("hashchange", updateHash);
     };
   }, [activeHash]);
+
+  const toggleTheme = () => {
+    if (!theme) return;
+    const nextTheme = theme === "light" ? "dark" : "light";
+    setTheme(nextTheme);
+    document.documentElement.setAttribute("data-theme", nextTheme);
+    localStorage.setItem("theme", nextTheme);
+  };
 
   const isActive = (hash: string) => pathname === "/" && activeHash === hash;
 
@@ -115,13 +122,14 @@ export function Navbar() {
           gap: 2,
           maxWidth: "1400px",
           mx: "auto",
-          px: { xs: 1.5, md: 2 },
+          px: { xs: 2, md: 3 },
           py: 1.25,
           borderRadius: "999px",
-          backgroundColor: "rgba(255, 255, 255, 0.72)",
-          border: "1px solid rgba(148, 163, 184, 0.18)",
+          backgroundColor: "var(--glass-nav)",
+          border: "1px solid var(--nav-border)",
           backdropFilter: "blur(16px)",
-          boxShadow: "0 10px 30px rgba(15, 23, 42, 0.06)",
+          boxShadow: "0 10px 30px rgba(15, 23, 42, 0.04)",
+          transition: "background-color 0.3s ease, border-color 0.3s ease",
         }}
       >
         <Typography
@@ -133,40 +141,32 @@ export function Navbar() {
             fontWeight: 800,
             letterSpacing: "0.14em",
             textTransform: "uppercase",
-            color: "#0f172a",
+            color: "var(--text-primary)",
+            transition: "color 0.3s ease",
           }}
         >
           Mia Gubat
         </Typography>
 
-        {/* Mobile Hamburger Icon */}
-        <IconButton
-          color="inherit"
-          aria-label="open drawer"
-          edge="end"
-          onClick={handleDrawerToggle}
-          sx={{ display: { md: "none" }, color: "#0f172a" }}
-        >
-          <MenuIcon sx={{ fontSize: 32 }} />
-        </IconButton>
-
-        {/* Desktop Navigation */}
+        {/* Desktop Navigation & Actions */}
         <Stack
-          component="ul"
           direction="row"
+          spacing={2}
           alignItems="center"
-          justifyContent="flex-end"
-          sx={(theme) => ({
-            display: { xs: "none", md: "flex" },
-            flex: 1,
-            listStyle: "none",
-            m: 0,
-            p: 0,
-            gap: theme.spacing(1),
-          })}
+          sx={{ display: { xs: "none", md: "flex" } }}
         >
-          {navItems.map((item) => {
-            return (
+          <Stack
+            component="ul"
+            direction="row"
+            alignItems="center"
+            sx={(theme) => ({
+              listStyle: "none",
+              m: 0,
+              p: 0,
+              gap: theme.spacing(0.5),
+            })}
+          >
+            {navItems.map((item) => (
               <Box component="li" key={item.label}>
                 <Typography
                   component={Link}
@@ -175,29 +175,81 @@ export function Navbar() {
                     display: "inline-flex",
                     alignItems: "center",
                     textDecoration: "none",
-                    px: 2,
+                    px: 2.25,
                     py: 1,
                     borderRadius: "999px",
-                    fontSize: "14px",
+                    fontSize: "13.5px",
                     fontWeight: 700,
                     letterSpacing: "0.04em",
                     textTransform: "uppercase",
-                    color: isActive(item.hash) ? "#7c3aed" : "#0f172a",
+                    color: isActive(item.hash) ? "#7c3aed" : "var(--text-primary)",
                     backgroundColor: isActive(item.hash)
                       ? "rgba(124, 58, 237, 0.08)"
                       : "transparent",
                     transition: "all 0.2s ease",
                     "&:hover": {
                       color: "#7c3aed",
-                      backgroundColor: "rgba(124, 58, 237, 0.08)",
+                      backgroundColor: "rgba(124, 58, 237, 0.06)",
                     },
                   }}
                 >
                   {item.label}
                 </Typography>
               </Box>
-            );
-          })}
+            ))}
+          </Stack>
+
+          {/* Theme Toggle Button */}
+          {theme && (
+            <IconButton
+              onClick={toggleTheme}
+              aria-label="Toggle theme mode"
+              sx={{
+                width: 40,
+                height: 40,
+                color: "var(--text-primary)",
+                border: "1px solid var(--nav-border)",
+                bgcolor: "var(--chip-bg)",
+                transition: "all 0.25s ease",
+                "&:hover": {
+                  bgcolor: "rgba(124, 58, 237, 0.08)",
+                  borderColor: "#7c3aed",
+                  transform: "rotate(15deg)",
+                },
+              }}
+            >
+              {theme === "light" ? <DarkModeOutlinedIcon /> : <LightModeOutlinedIcon />}
+            </IconButton>
+          )}
+        </Stack>
+
+        {/* Mobile controls */}
+        <Stack direction="row" spacing={1} alignItems="center" sx={{ display: { md: "none" } }}>
+          {theme && (
+            <IconButton
+              onClick={toggleTheme}
+              aria-label="Toggle theme mode"
+              sx={{
+                width: 36,
+                height: 36,
+                color: "var(--text-primary)",
+                border: "1px solid var(--nav-border)",
+                bgcolor: "var(--chip-bg)",
+              }}
+            >
+              {theme === "light" ? <DarkModeOutlinedIcon sx={{ fontSize: 20 }} /> : <LightModeOutlinedIcon sx={{ fontSize: 20 }} />}
+            </IconButton>
+          )}
+          
+          <IconButton
+            color="inherit"
+            aria-label="open drawer"
+            edge="end"
+            onClick={handleDrawerToggle}
+            sx={{ color: "var(--text-primary)" }}
+          >
+            <MenuIcon sx={{ fontSize: 28 }} />
+          </IconButton>
         </Stack>
       </Box>
 
@@ -207,58 +259,58 @@ export function Navbar() {
         open={mobileOpen}
         onClose={handleDrawerToggle}
         ModalProps={{
-          keepMounted: true, // Better open performance on mobile.
+          keepMounted: true,
         }}
         sx={{
           display: { xs: "block", md: "none" },
           "& .MuiDrawer-paper": {
             boxSizing: "border-box",
             width: 260,
-            bgcolor: "rgba(255, 255, 255, 0.92)",
+            bgcolor: "var(--dialog-bg)",
             backdropFilter: "blur(16px)",
+            backgroundImage: "none",
+            borderLeft: "1px solid var(--nav-border)",
           },
         }}
       >
         <Box sx={{ display: "flex", justifyContent: "flex-end", p: 2 }}>
-          <IconButton onClick={handleDrawerToggle} sx={{ color: "#0f172a" }}>
-            <CloseIcon sx={{ fontSize: 28 }} />
+          <IconButton onClick={handleDrawerToggle} sx={{ color: "var(--text-primary)" }}>
+            <CloseIcon sx={{ fontSize: 26 }} />
           </IconButton>
         </Box>
         <List sx={{ px: 2 }}>
-          {navItems.map((item) => {
-            return (
-              <ListItem key={item.label} disablePadding sx={{ mb: 2 }}>
-                <Typography
-                  component={Link}
-                  href={item.href}
-                  onClick={handleDrawerToggle}
-                  sx={{
-                    width: "100%",
-                    textAlign: "right",
-                    textDecoration: "none",
-                    px: 2,
-                    py: 1.25,
-                    borderRadius: "16px",
-                    fontWeight: 700,
-                    letterSpacing: "0.04em",
-                    textTransform: "uppercase",
-                    fontSize: "15px",
-                    color: isActive(item.hash) ? "#7c3aed" : "#0f172a",
-                    backgroundColor: isActive(item.hash)
-                      ? "rgba(124, 58, 237, 0.08)"
-                      : "transparent",
-                    transition: "all 0.2s ease",
-                    "&:hover": {
-                      color: "#7c3aed",
-                      backgroundColor: "rgba(124, 58, 237, 0.08)",
-                    },
-                  }}
-                >
-                  {item.label}
-                </Typography>
-              </ListItem>
-            );
-          })}
+          {navItems.map((item) => (
+            <ListItem key={item.label} disablePadding sx={{ mb: 1.5 }}>
+              <Typography
+                component={Link}
+                href={item.href}
+                onClick={handleDrawerToggle}
+                sx={{
+                  width: "100%",
+                  textAlign: "right",
+                  textDecoration: "none",
+                  px: 2,
+                  py: 1.25,
+                  borderRadius: "16px",
+                  fontWeight: 700,
+                  letterSpacing: "0.04em",
+                  textTransform: "uppercase",
+                  fontSize: "14px",
+                  color: isActive(item.hash) ? "#7c3aed" : "var(--text-primary)",
+                  backgroundColor: isActive(item.hash)
+                    ? "rgba(124, 58, 237, 0.08)"
+                    : "transparent",
+                  transition: "all 0.2s ease",
+                  "&:hover": {
+                    color: "#7c3aed",
+                    backgroundColor: "rgba(124, 58, 237, 0.06)",
+                  },
+                }}
+              >
+                {item.label}
+              </Typography>
+            </ListItem>
+          ))}
         </List>
       </Drawer>
     </Box>

@@ -228,3 +228,21 @@ export const socialLinks = [
   { icon: "LinkedIn", url: "https://linkedin.com/in/mia-gubat", label: "LinkedIn" },
   { icon: "GitHub", url: "https://github.com/briella13", label: "GitHub" },
 ];
+
+export type ToolInfo = {
+  name: string;
+  category: "Design" | "QA" | "General";
+  description: string;
+  projectCount: number;
+};
+
+export const toolsData: ToolInfo[] = [
+  { name: "Figma", category: "Design", description: "Interface design & layouts", projectCount: 4 },
+  { name: "Photoshop", category: "Design", description: "Poster design & raster layouts", projectCount: 8 },
+  { name: "Illustrator", category: "Design", description: "Vector layouts & invitation details", projectCount: 7 },
+  { name: "Canva", category: "Design", description: "Quick template mockups", projectCount: 4 },
+  { name: "Lightroom", category: "Design", description: "Photo color correction", projectCount: 3 },
+  { name: "Manual Testing", category: "QA", description: "Quality assurance suites", projectCount: 1 },
+  { name: "Jira", category: "QA", description: "Bug tracking & agile workflows", projectCount: 1 },
+];
+

@@ -17,14 +17,15 @@ export function SectionTitle({
           mb: 2,
           px: 1.5,
           py: 0.5,
-          bgcolor: "rgba(255, 255, 255, 0.8)",
-          border: "1px solid rgba(124, 58, 237, 0.15)",
+          bgcolor: "var(--chip-bg)",
+          border: "1px solid var(--card-border)",
           color: "#7c3aed",
           fontWeight: 700,
           fontSize: "11px",
           letterSpacing: "0.14em",
           textTransform: "uppercase",
           boxShadow: "0 4px 12px rgba(124, 58, 237, 0.05)",
+          transition: "all 0.3s ease",
         }}
       />
       <Typography
@@ -33,8 +34,9 @@ export function SectionTitle({
           fontWeight: 900,
           fontSize: { xs: "28px", sm: "36px", md: "46px" },
           lineHeight: 1.1,
-          color: "#0f172a",
+          color: "var(--text-primary)",
           letterSpacing: "-0.02em",
+          transition: "color 0.3s ease",
         }}
       >
         {title}
@@ -45,9 +47,10 @@ export function SectionTitle({
             mt: 2.5,
             mx: "auto",
             maxWidth: 700,
-            color: "#475569",
+            color: "var(--text-secondary)",
             fontSize: { xs: "15px", md: "16px" },
             lineHeight: 1.7,
+            transition: "color 0.3s ease",
           }}
         >
           {description}

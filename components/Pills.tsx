@@ -8,15 +8,16 @@ export function Pills({ items }: { items: readonly string[] }) {
           key={item}
           label={item}
           sx={{
-            bgcolor: "rgba(255, 255, 255, 0.8)",
-            border: "1px solid rgba(124, 58, 237, 0.12)",
+            bgcolor: "var(--chip-bg)",
+            border: "1px solid var(--card-border)",
             fontWeight: 600,
             fontSize: "13px",
-            color: "#334155",
-            transition: "all 0.2s ease",
+            color: "var(--text-secondary)",
+            transition: "all 0.25s ease",
             "&:hover": {
               bgcolor: "rgba(124, 58, 237, 0.05)",
               borderColor: "#7c3aed",
+              color: "#7c3aed",
               transform: "scale(1.05)",
             },
           }}

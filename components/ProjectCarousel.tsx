@@ -23,6 +23,7 @@ import { SurfaceCard } from "./SurfaceCard";
 
 export function ProjectCarousel() {
   const [activeCategory, setActiveCategory] = useState("All");
+  const [activeTool, setActiveTool] = useState<string | null>(null);
   const [layoutMode, setLayoutMode] = useState<"grid" | "carousel">("carousel");
   const [selectedProjectIndex, setSelectedProjectIndex] = useState<number | null>(null);
   
@@ -33,13 +34,38 @@ export function ProjectCarousel() {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
+  // Listen to tool selection events from the visualizer
+  useEffect(() => {
+    const handleFilterEvent = (e: Event) => {
+      const customEvent = e as CustomEvent<{ category?: string; tool?: string }>;
+      if (customEvent.detail) {
+        if (customEvent.detail.category) {
+          setActiveCategory(customEvent.detail.category);
+          setActiveTool(null);
+        }
+        if (customEvent.detail.tool !== undefined) {
+          setActiveTool(customEvent.detail.tool);
+          if (customEvent.detail.tool !== null) {
+            setActiveCategory("All"); // Show all matching categories
+          }
+        }
+      }
+    };
+    window.addEventListener("portfolio-filter", handleFilterEvent);
+    return () => {
+      window.removeEventListener("portfolio-filter", handleFilterEvent);
+    };
+  }, []);
+
   // Get unique categories from project cards
   const categories = ["All", ...Array.from(new Set(projectCards.map((p) => p.category)))];
 
-  // Filter projects based on active category
-  const filteredProjects = projectCards.filter(
-    (project) => activeCategory === "All" || project.category === activeCategory
-  );
+  // Filter projects based on active category and active tool
+  const filteredProjects = projectCards.filter((project) => {
+    const matchesCategory = activeCategory === "All" || project.category === activeCategory;
+    const matchesTool = !activeTool || (project.tools && project.tools.includes(activeTool));
+    return matchesCategory && matchesTool;
+  });
 
   // Update carousel scroll properties
   const updateScrollStats = () => {
@@ -52,7 +78,6 @@ export function ProjectCarousel() {
 
   useEffect(() => {
     updateScrollStats();
-    // Delay check for image loads/rendering
     const timer = setTimeout(updateScrollStats, 200);
     window.addEventListener("resize", updateScrollStats);
     return () => {
@@ -94,20 +119,19 @@ export function ProjectCarousel() {
   }, [selectedProjectIndex, filteredProjects]);
 
   const handleNextProject = () => {
-    if (selectedProjectIndex !== null) {
+    if (selectedProjectIndex !== null && filteredProjects.length > 0) {
       setSelectedProjectIndex((selectedProjectIndex + 1) % filteredProjects.length);
     }
   };
 
   const handlePrevProject = () => {
-    if (selectedProjectIndex !== null) {
+    if (selectedProjectIndex !== null && filteredProjects.length > 0) {
       setSelectedProjectIndex(
         (selectedProjectIndex - 1 + filteredProjects.length) % filteredProjects.length
       );
     }
   };
 
-  // Active project data for Lightbox
   const activeProject = selectedProjectIndex !== null ? filteredProjects[selectedProjectIndex] : null;
 
   return (
@@ -118,12 +142,13 @@ export function ProjectCarousel() {
         justifyContent="space-between"
         alignItems="center"
         spacing={2.5}
-        sx={{ mb: 5 }}
+        sx={{ mb: 4 }}
       >
         <Tabs
           value={activeCategory}
           onChange={(_, value) => {
             setActiveCategory(value);
+            setActiveTool(null); // Clear tool filters when clicking categories
             if (carouselRef.current) {
               carouselRef.current.scrollLeft = 0;
             }
@@ -141,8 +166,9 @@ export function ProjectCarousel() {
               textTransform: "none",
               fontWeight: 700,
               fontSize: "15px",
-              color: "#64748b",
+              color: "var(--text-secondary)",
               px: { xs: 2, sm: 3 },
+              transition: "color 0.3s ease",
               "&.Mui-selected": {
                 color: "#7c3aed",
               },
@@ -162,7 +188,8 @@ export function ProjectCarousel() {
             p: 0.75,
             borderRadius: "999px",
             bgcolor: "rgba(124, 58, 237, 0.05)",
-            border: "1px solid rgba(124, 58, 237, 0.12)",
+            border: "1px solid var(--card-border)",
+            transition: "all 0.3s ease",
           }}
         >
           <IconButton
@@ -170,10 +197,11 @@ export function ProjectCarousel() {
             color={layoutMode === "carousel" ? "primary" : "default"}
             sx={{
               p: 1,
-              bgcolor: layoutMode === "carousel" ? "white" : "transparent",
-              boxShadow: layoutMode === "carousel" ? "0 4px 12px rgba(15, 23, 42, 0.05)" : "none",
-              color: layoutMode === "carousel" ? "#7c3aed" : "#64748b",
-              "&:hover": { bgcolor: layoutMode === "carousel" ? "white" : "rgba(124, 58, 237, 0.08)" },
+              bgcolor: layoutMode === "carousel" ? "var(--dialog-card-bg)" : "transparent",
+              boxShadow: layoutMode === "carousel" ? "0 4px 12px rgba(15, 23, 42, 0.04)" : "none",
+              color: layoutMode === "carousel" ? "#7c3aed" : "var(--text-secondary)",
+              transition: "all 0.25s ease",
+              "&:hover": { bgcolor: layoutMode === "carousel" ? "var(--dialog-card-bg)" : "rgba(124, 58, 237, 0.08)" },
             }}
           >
             <ViewCarouselRoundedIcon />
@@ -183,10 +211,11 @@ export function ProjectCarousel() {
             color={layoutMode === "grid" ? "primary" : "default"}
             sx={{
               p: 1,
-              bgcolor: layoutMode === "grid" ? "white" : "transparent",
-              boxShadow: layoutMode === "grid" ? "0 4px 12px rgba(15, 23, 42, 0.05)" : "none",
-              color: layoutMode === "grid" ? "#7c3aed" : "#64748b",
-              "&:hover": { bgcolor: layoutMode === "grid" ? "white" : "rgba(124, 58, 237, 0.08)" },
+              bgcolor: layoutMode === "grid" ? "var(--dialog-card-bg)" : "transparent",
+              boxShadow: layoutMode === "grid" ? "0 4px 12px rgba(15, 23, 42, 0.04)" : "none",
+              color: layoutMode === "grid" ? "#7c3aed" : "var(--text-secondary)",
+              transition: "all 0.25s ease",
+              "&:hover": { bgcolor: layoutMode === "grid" ? "var(--dialog-card-bg)" : "rgba(124, 58, 237, 0.08)" },
             }}
           >
             <GridViewRoundedIcon />
@@ -194,8 +223,39 @@ export function ProjectCarousel() {
         </Stack>
       </Stack>
 
+      {/* Active Tool Filter Banner */}
+      {activeTool && (
+        <Stack
+          direction="row"
+          spacing={1.5}
+          alignItems="center"
+          sx={{ mb: 4, p: 2, borderRadius: "18px", bgcolor: "rgba(124, 58, 237, 0.06)", border: "1px solid var(--card-border)", animation: "fadeIn 0.3s ease" }}
+        >
+          <Typography sx={{ fontSize: "14px", fontWeight: 700, color: "var(--text-secondary)" }}>
+            Viewing projects using:
+          </Typography>
+          <Chip
+            label={activeTool}
+            onDelete={() => setActiveTool(null)}
+            sx={{
+              bgcolor: "var(--dialog-card-bg)",
+              border: "1px solid #7c3aed",
+              color: "#7c3aed",
+              fontWeight: 800,
+              "& .MuiChip-deleteIcon": { color: "#7c3aed" },
+            }}
+          />
+        </Stack>
+      )}
+
       {/* Projects view container */}
-      {layoutMode === "grid" ? (
+      {filteredProjects.length === 0 ? (
+        <SurfaceCard sx={{ p: 6, textAlign: "center", my: 4 }}>
+          <Typography sx={{ color: "var(--text-secondary)", fontSize: "16px", fontWeight: 600 }}>
+            No projects found matching the criteria.
+          </Typography>
+        </SurfaceCard>
+      ) : layoutMode === "grid" ? (
         <Box
           sx={{
             display: "grid",
@@ -230,13 +290,14 @@ export function ProjectCarousel() {
                 zIndex: 10,
                 width: 48,
                 height: 48,
-                bgcolor: "white",
-                boxShadow: "0 10px 25px rgba(15, 23, 42, 0.15)",
-                border: "1px solid rgba(168, 85, 247, 0.12)",
+                bgcolor: "var(--dialog-card-bg)",
+                boxShadow: "0 10px 25px rgba(15, 23, 42, 0.1)",
+                border: "1px solid var(--card-border)",
                 color: "#7c3aed",
                 display: { xs: "none", md: "flex" },
+                transition: "all 0.3s ease",
                 "&:hover": {
-                  bgcolor: "#fcfaff",
+                  bgcolor: "var(--card-bg)",
                   transform: "translateY(-50%) scale(1.05)",
                 },
               }}
@@ -257,13 +318,14 @@ export function ProjectCarousel() {
                 zIndex: 10,
                 width: 48,
                 height: 48,
-                bgcolor: "white",
-                boxShadow: "0 10px 25px rgba(15, 23, 42, 0.15)",
-                border: "1px solid rgba(168, 85, 247, 0.12)",
+                bgcolor: "var(--dialog-card-bg)",
+                boxShadow: "0 10px 25px rgba(15, 23, 42, 0.1)",
+                border: "1px solid var(--card-border)",
                 color: "#7c3aed",
                 display: { xs: "none", md: "flex" },
+                transition: "all 0.3s ease",
                 "&:hover": {
-                  bgcolor: "#fcfaff",
+                  bgcolor: "var(--card-bg)",
                   transform: "translateY(-50%) scale(1.05)",
                 },
               }}
@@ -281,8 +343,8 @@ export function ProjectCarousel() {
               gap: 3.5,
               overflowX: "auto",
               scrollSnapType: "x mandatory",
-              scrollbarWidth: "none", // Firefox
-              "&::-webkit-scrollbar": { display: "none" }, // Chrome
+              scrollbarWidth: "none",
+              "&::-webkit-scrollbar": { display: "none" },
               pb: 3,
               px: { xs: 0.5, md: 1 },
             }}
@@ -317,20 +379,22 @@ export function ProjectCarousel() {
         fullWidth
         PaperProps={{
           sx: {
-            backgroundColor: "rgba(255, 255, 255, 0.95)",
+            backgroundColor: "var(--dialog-bg)",
             backdropFilter: "blur(24px)",
             boxShadow: "0 25px 80px rgba(15, 23, 42, 0.2)",
             borderRadius: "32px",
             overflow: "hidden",
-            border: "1px solid rgba(168, 85, 247, 0.16)",
+            border: "1px solid var(--card-border)",
             maxHeight: "90vh",
             m: { xs: 1.5, md: 3 },
+            backgroundImage: "none",
+            transition: "background-color 0.3s ease, border-color 0.3s ease",
           },
         }}
       >
         {activeProject && (
           <Box sx={{ position: "relative", height: "100%", width: "100%" }}>
-            {/* Header controls (Close, Prev/Next) */}
+            {/* Header controls (Close) */}
             <IconButton
               onClick={() => setSelectedProjectIndex(null)}
               sx={{
@@ -338,11 +402,12 @@ export function ProjectCarousel() {
                 top: 18,
                 right: 18,
                 zIndex: 20,
-                color: "#1e293b",
-                backgroundColor: "rgba(255, 255, 255, 0.8)",
-                border: "1px solid rgba(15, 23, 42, 0.08)",
+                color: "var(--text-primary)",
+                backgroundColor: "var(--chip-bg)",
+                border: "1px solid var(--card-border)",
                 backdropFilter: "blur(8px)",
-                "&:hover": { backgroundColor: "#f1f5f9" },
+                transition: "all 0.25s ease",
+                "&:hover": { backgroundColor: "var(--card-bg)" },
               }}
             >
               <CloseRoundedIcon sx={{ fontSize: 24 }} />
@@ -372,7 +437,6 @@ export function ProjectCarousel() {
                   p: { xs: 2, md: 4 },
                 }}
               >
-                {/* Image element */}
                 <Box
                   sx={{
                     position: "relative",
@@ -446,9 +510,10 @@ export function ProjectCarousel() {
                   display: "flex",
                   flexDirection: "column",
                   justifyContent: "space-between",
-                  bgcolor: "white",
+                  bgcolor: "var(--dialog-card-bg)",
                   overflowY: "auto",
-                  borderLeft: { md: "1px solid rgba(168, 85, 247, 0.12)" },
+                  borderLeft: { md: "1px solid var(--card-border)" },
+                  transition: "background-color 0.3s ease, border-color 0.3s ease",
                 }}
               >
                 <Box>
@@ -468,17 +533,18 @@ export function ProjectCarousel() {
                   />
                   <Typography
                     variant="h4"
-                    sx={{ fontWeight: 900, color: "#0f172a", mb: 2, pr: 4 }}
+                    sx={{ fontWeight: 900, color: "var(--text-primary)", mb: 2, pr: 4, transition: "color 0.3s ease" }}
                   >
                     {activeProject.title}
                   </Typography>
                   <Typography
                     sx={{
-                      color: "#334155",
+                      color: "var(--text-secondary)",
                       lineHeight: 1.7,
                       fontSize: "15px",
                       mb: 3,
                       fontWeight: 500,
+                      transition: "color 0.3s ease",
                     }}
                   >
                     {activeProject.description}
@@ -491,15 +557,16 @@ export function ProjectCarousel() {
                         sx={{
                           fontSize: "12px",
                           fontWeight: 800,
-                          color: "#64748b",
+                          color: "var(--text-secondary)",
                           textTransform: "uppercase",
                           letterSpacing: "0.08em",
                           mb: 1.25,
+                          transition: "color 0.3s ease",
                         }}
                       >
                         Project Details & Purpose
                       </Typography>
-                      <Typography sx={{ color: "#475569", lineHeight: 1.7, fontSize: "14px" }}>
+                      <Typography sx={{ color: "var(--text-secondary)", lineHeight: 1.7, fontSize: "14px", transition: "color 0.3s ease" }}>
                         {activeProject.details}
                       </Typography>
                     </Box>
@@ -512,10 +579,11 @@ export function ProjectCarousel() {
                         sx={{
                           fontSize: "12px",
                           fontWeight: 800,
-                          color: "#64748b",
+                          color: "var(--text-secondary)",
                           textTransform: "uppercase",
                           letterSpacing: "0.08em",
                           mb: 1.5,
+                          transition: "color 0.3s ease",
                         }}
                       >
                         Tools & Technologies
@@ -526,11 +594,12 @@ export function ProjectCarousel() {
                             key={tool}
                             label={tool}
                             sx={{
-                              bgcolor: "#f8fafc",
-                              border: "1px solid #e2e8f0",
-                              color: "#475569",
+                              bgcolor: "var(--chip-bg)",
+                              border: "1px solid var(--card-border)",
+                              color: "var(--text-secondary)",
                               fontWeight: 700,
                               fontSize: "12px",
+                              transition: "all 0.25s ease",
                               "&:hover": {
                                 bgcolor: "rgba(124, 58, 237, 0.05)",
                                 color: "#7c3aed",
@@ -548,13 +617,14 @@ export function ProjectCarousel() {
                 <Box
                   sx={{
                     pt: 4,
-                    borderTop: "1px solid #f1f5f9",
+                    borderTop: "1px solid var(--divider-color)",
                     display: "flex",
                     justifyContent: "space-between",
                     alignItems: "center",
+                    transition: "border-color 0.3s ease",
                   }}
                 >
-                  <Typography sx={{ fontSize: "13px", fontWeight: 700, color: "#94a3b8" }}>
+                  <Typography sx={{ fontSize: "13px", fontWeight: 700, color: "var(--text-secondary)" }}>
                     Project {selectedProjectIndex !== null ? selectedProjectIndex + 1 : 1} of {filteredProjects.length}
                   </Typography>
                   <Stack direction="row" spacing={1.5}>
@@ -567,9 +637,10 @@ export function ProjectCarousel() {
                         py: 1,
                         textTransform: "none",
                         fontWeight: 700,
-                        borderColor: "#cbd5e1",
-                        color: "#475569",
-                        "&:hover": { borderColor: "#94a3b8", bgcolor: "#f8fafc" },
+                        borderColor: "var(--card-border)",
+                        color: "var(--text-secondary)",
+                        transition: "all 0.25s ease",
+                        "&:hover": { borderColor: "#a855f7", bgcolor: "var(--chip-bg)" },
                       }}
                     >
                       Close
@@ -604,7 +675,7 @@ function ProjectCardTile({ project, onClick }: { project: ProjectCard; onClick: 
           sx={{
             position: "relative",
             height: { xs: 230, md: 270 },
-            backgroundColor: "#f1f5f9",
+            backgroundColor: "rgba(124, 58, 237, 0.03)",
             flexShrink: 0,
             overflow: "hidden",
           }}
@@ -617,7 +688,6 @@ function ProjectCardTile({ project, onClick }: { project: ProjectCard; onClick: 
             priority={false}
             style={{
               objectFit: "cover",
-              transition: "transform 0.5s ease",
             }}
             className="project-tile-image"
           />
@@ -625,7 +695,7 @@ function ProjectCardTile({ project, onClick }: { project: ProjectCard; onClick: 
             sx={{
               position: "absolute",
               inset: 0,
-              background: "linear-gradient(180deg, transparent 50%, rgba(15,23,42,0.3) 100%)",
+              background: "linear-gradient(180deg, transparent 50%, rgba(15,23,42,0.2) 100%)",
             }}
           />
         </Box>
@@ -647,12 +717,12 @@ function ProjectCardTile({ project, onClick }: { project: ProjectCard; onClick: 
             </Typography>
             <Typography
               variant="h6"
-              sx={{ fontSize: "18px", fontWeight: 800, color: "#0f172a", mb: 1, lineHeight: 1.3 }}
+              sx={{ fontSize: "18px", fontWeight: 800, color: "var(--text-primary)", mb: 1, lineHeight: 1.3, transition: "color 0.3s ease" }}
             >
               {project.title}
             </Typography>
             <Typography
-              sx={{ color: "#475569", lineHeight: 1.6, fontSize: "13.5px" }}
+              sx={{ color: "var(--text-secondary)", lineHeight: 1.6, fontSize: "13.5px", transition: "color 0.3s ease" }}
             >
               {project.description}
             </Typography>
@@ -669,8 +739,9 @@ function ProjectCardTile({ project, onClick }: { project: ProjectCard; onClick: 
                   sx={{
                     fontSize: "10px",
                     fontWeight: 700,
-                    bgcolor: "rgba(15, 23, 42, 0.03)",
-                    color: "#64748b",
+                    bgcolor: "var(--chip-bg)",
+                    border: "1px solid var(--card-border)",
+                    color: "var(--text-secondary)",
                     height: "20px",
                   }}
                 />

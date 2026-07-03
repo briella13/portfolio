@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Mia Gabriella B. Gubat | Design & QA Portfolio",
     description: "Refined brand systems, poster layouts, web designs, and quality assurance portfolios.",
-    url: "https://gubatmia.com", // update if needed, standard url
+    url: "https://portfolio-gubat.vercel.app",
     siteName: "Mia Gabriella Gubat Portfolio",
     locale: "en_US",
     type: "website",
@@ -40,13 +40,21 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${geistSans.variable} h-full antialiased`}>
-      <body
-        className="min-h-full flex flex-col m-0 p-0 font-sans"
-        style={{
-          background:
-            "linear-gradient(to right, #F8FAFC 0%, #EFF6FF 50%, #FAF5FF 100%)",
-        }}
-      >
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  var theme = localStorage.getItem('theme') || 'light';
+                  document.documentElement.setAttribute('data-theme', theme);
+                } catch (e) {}
+              })()
+            `,
+          }}
+        />
+      </head>
+      <body className="min-h-full flex flex-col m-0 p-0 font-sans">
         <AppRouterCacheProvider>
           <Navbar />
           {children}

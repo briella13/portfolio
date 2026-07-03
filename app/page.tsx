@@ -17,6 +17,7 @@ import { SectionTitle } from "../components/SectionTitle";
 import { Pills } from "../components/Pills";
 import { ProjectCarousel } from "../components/ProjectCarousel";
 import { ContactForm } from "../components/ContactForm";
+import { ToolsVisualizer } from "../components/ToolsVisualizer";
 
 const getSocialIcon = (name: string) => {
   switch (name) {
@@ -41,7 +42,7 @@ export default function Home() {
           inset: 0,
           pointerEvents: "none",
           background:
-            "radial-gradient(circle at top right, rgba(168,85,247,0.18), transparent 32%), radial-gradient(circle at 15% 15%, rgba(236,72,153,0.08), transparent 28%), radial-gradient(circle at bottom left, rgba(59,130,246,0.14), transparent 35%)",
+            "radial-gradient(circle at top right, var(--radial-1), transparent 32%), radial-gradient(circle at 15% 15%, var(--radial-2), transparent 28%), radial-gradient(circle at bottom left, var(--radial-3), transparent 35%)",
           zIndex: -1,
           animation: "meshPulse 12s ease-in-out infinite alternate",
           "@keyframes meshPulse": {
@@ -76,14 +77,15 @@ export default function Home() {
               label="Graphic Designer · UI/UX Designer"
               sx={{
                 px: 1.5,
-                bgcolor: "rgba(255, 255, 255, 0.8)",
-                border: "1px solid rgba(124, 58, 237, 0.16)",
+                bgcolor: "var(--chip-bg)",
+                border: "1px solid var(--card-border)",
                 color: "#7c3aed",
                 fontWeight: 700,
                 fontSize: "11px",
                 letterSpacing: "0.08em",
                 textTransform: "uppercase",
                 boxShadow: "0 4px 12px rgba(124, 58, 237, 0.05)",
+                transition: "all 0.3s ease",
               }}
             />
 
@@ -95,8 +97,9 @@ export default function Home() {
                 lineHeight: 0.95,
                 fontWeight: 900,
                 letterSpacing: "-0.04em",
-                color: "#0f172a",
+                color: "var(--text-primary)",
                 maxWidth: 780,
+                transition: "color 0.3s ease",
               }}
             >
               Mia Gabriella Gubat
@@ -106,10 +109,11 @@ export default function Home() {
               sx={{
                 mt: 3.5,
                 maxWidth: 640,
-                color: "#475569",
+                color: "var(--text-secondary)",
                 fontSize: { xs: "16px", md: "18px" },
                 lineHeight: 1.8,
                 fontWeight: 500,
+                transition: "color 0.3s ease",
               }}
             >
               I create visual systems, UI layouts, and presentation-ready
@@ -129,12 +133,12 @@ export default function Home() {
                   key={item}
                   label={item}
                   sx={{
-                    bgcolor: "rgba(255, 255, 255, 0.8)",
-                    border: "1px solid rgba(124, 58, 237, 0.12)",
-                    color: "#1e293b",
+                    bgcolor: "var(--chip-bg)",
+                    border: "1px solid var(--card-border)",
+                    color: "var(--text-primary)",
                     fontWeight: 600,
                     borderRadius: "999px",
-                    transition: "all 0.2s ease",
+                    transition: "all 0.25s ease",
                     "&:hover": {
                       bgcolor: "rgba(124, 58, 237, 0.04)",
                       borderColor: "#7c3aed",
@@ -180,16 +184,16 @@ export default function Home() {
                   px: 4,
                   py: 1.6,
                   borderRadius: "999px",
-                  bgcolor: "rgba(255, 255, 255, 0.82)",
-                  color: "#0f172a",
+                  bgcolor: "var(--chip-bg)",
+                  color: "var(--text-primary)",
                   textTransform: "none",
                   fontWeight: 700,
                   fontSize: 16,
-                  border: "1px solid rgba(124, 58, 237, 0.16)",
+                  border: "1px solid var(--card-border)",
                   boxShadow: "0 4px 12px rgba(15, 23, 42, 0.04)",
                   transition: "all 0.25s ease",
                   "&:hover": {
-                    bgcolor: "white",
+                    bgcolor: "var(--card-bg)",
                     borderColor: "#7c3aed",
                     transform: "translateY(-2px)",
                   },
@@ -217,8 +221,9 @@ export default function Home() {
                     sx={{
                       fontSize: 28,
                       fontWeight: 900,
-                      color: "#0f172a",
+                      color: "var(--text-primary)",
                       lineHeight: 1,
+                      transition: "color 0.3s ease",
                     }}
                   >
                     {item.value}
@@ -226,11 +231,12 @@ export default function Home() {
                   <Typography
                     sx={{
                       mt: 0.8,
-                      color: "#64748b",
+                      color: "var(--text-secondary)",
                       fontSize: 12,
                       textTransform: "uppercase",
                       letterSpacing: "0.08em",
                       fontWeight: 700,
+                      transition: "color 0.3s ease",
                     }}
                   >
                     {item.label}
@@ -336,10 +342,11 @@ export default function Home() {
             <SurfaceCard sx={{ p: { xs: 3, md: 4 } }}>
               <Typography
                 sx={{
-                  color: "#475569",
+                  color: "var(--text-secondary)",
                   lineHeight: 1.9,
                   fontSize: { xs: 16, md: 17.5 },
                   fontWeight: 500,
+                  transition: "color 0.3s ease",
                 }}
               >
                 I design with structure, contrast, and consistency in mind. My
@@ -347,7 +354,7 @@ export default function Home() {
                 to scan, whether I am building a clean web interface, a poster,
                 or a visual identity.
               </Typography>
-              <Divider sx={{ my: 3.5, borderColor: "rgba(124, 58, 237, 0.1)" }} />
+              <Divider sx={{ my: 3.5, borderColor: "var(--divider-color)" }} />
               <Stack direction="row" flexWrap="wrap" gap={2}>
                 {featureCards.map((card) => (
                   <SurfaceCard
@@ -373,7 +380,8 @@ export default function Home() {
                         mt: 1.5,
                         fontWeight: 800,
                         fontSize: 16.5,
-                        color: "#0f172a",
+                        color: "var(--text-primary)",
+                        transition: "color 0.3s ease",
                       }}
                     >
                       {card.title}
@@ -381,9 +389,10 @@ export default function Home() {
                     <Typography
                       sx={{
                         mt: 1,
-                        color: "#64748b",
+                        color: "var(--text-secondary)",
                         lineHeight: 1.7,
                         fontSize: 13.5,
+                        transition: "color 0.3s ease",
                       }}
                     >
                       {card.description}
@@ -408,7 +417,9 @@ export default function Home() {
                       flexShrink: 0,
                       borderRadius: "20px",
                       overflow: "hidden",
-                      bgcolor: "#f8fafc",
+                      bgcolor: "var(--chip-bg)",
+                      border: "1px solid var(--card-border)",
+                      transition: "all 0.3s ease",
                     }}
                   >
                     <Image
@@ -421,16 +432,17 @@ export default function Home() {
                   </Box>
                   <Box sx={{ display: "flex", flexDirection: "column", justifyContent: "center" }}>
                     <Typography
-                      sx={{ fontWeight: 800, fontSize: 16, color: "#0f172a" }}
+                      sx={{ fontWeight: 800, fontSize: 16, color: "var(--text-primary)", transition: "color 0.3s ease" }}
                     >
                       {["Design Passion", "UI/UX Focus", "Creativity"][index]}
                     </Typography>
                     <Typography
                       sx={{
                         mt: 0.8,
-                        color: "#64748b",
+                        color: "var(--text-secondary)",
                         lineHeight: 1.6,
                         fontSize: 13.5,
+                        transition: "color 0.3s ease",
                       }}
                     >
                       {
@@ -469,6 +481,25 @@ export default function Home() {
         </Box>
       </Box>
 
+      {/* Tools Section */}
+      <Box id="tools" sx={{ scrollMarginTop: "120px", py: { xs: 8, md: 12 } }}>
+        <Box
+          sx={{
+            maxWidth: "1400px",
+            mx: "auto",
+            px: { xs: 2.5, md: 4 },
+          }}
+        >
+          <SectionTitle
+            eyebrow="Tools"
+            title="Design & QA Toolset"
+            description="Explore the tools and frameworks behind the portfolio work. Hover to see info, or click to filter work."
+          />
+
+          <ToolsVisualizer />
+        </Box>
+      </Box>
+
       {/* Resume Section */}
       <Box id="resume" sx={{ scrollMarginTop: "120px" }}>
         <Box
@@ -502,7 +533,7 @@ export default function Home() {
                       borderRadius: "24px",
                       overflow: "hidden",
                       position: "relative",
-                      bgcolor: "#e2e8f0",
+                      bgcolor: "var(--chip-bg)",
                       flexShrink: 0,
                     }}
                   >
@@ -531,18 +562,19 @@ export default function Home() {
                         mt: 0.5,
                         fontSize: 22,
                         fontWeight: 900,
-                        color: "#0f172a",
+                        color: "var(--text-primary)",
+                        transition: "color 0.3s ease",
                       }}
                     >
                       Graphic Designer
                     </Typography>
-                    <Typography sx={{ color: "#64748b", mt: 0.5, fontWeight: 500 }}>
+                    <Typography sx={{ color: "var(--text-secondary)", mt: 0.5, fontWeight: 500, transition: "color 0.3s ease" }}>
                       UI/UX Designer · Quality Engineering
                     </Typography>
                   </Box>
                 </Stack>
 
-                <Divider sx={{ my: 3.5, borderColor: "rgba(124, 58, 237, 0.1)" }} />
+                <Divider sx={{ my: 3.5, borderColor: "var(--divider-color)" }} />
 
                 <Stack spacing={2}>
                   {[
@@ -576,7 +608,7 @@ export default function Home() {
                       >
                         {item.icon}
                       </Box>
-                      <Typography sx={{ color: "#334155", fontWeight: 600 }}>
+                      <Typography sx={{ color: "var(--text-secondary)", fontWeight: 600, transition: "color 0.3s ease" }}>
                         {item.value}
                       </Typography>
                     </Stack>
@@ -586,7 +618,7 @@ export default function Home() {
 
               <SurfaceCard sx={{ p: { xs: 3, md: 4 } }}>
                 <Typography
-                  sx={{ fontWeight: 800, fontSize: 18, color: "#0f172a" }}
+                  sx={{ fontWeight: 800, fontSize: 18, color: "var(--text-primary)", transition: "color 0.3s ease" }}
                 >
                   Core skills
                 </Typography>
@@ -606,7 +638,7 @@ export default function Home() {
 
               <SurfaceCard sx={{ p: { xs: 3, md: 4 } }}>
                 <Typography
-                  sx={{ fontWeight: 800, fontSize: 18, color: "#0f172a" }}
+                  sx={{ fontWeight: 800, fontSize: 18, color: "var(--text-primary)", transition: "color 0.3s ease" }}
                 >
                   Languages
                 </Typography>
@@ -617,7 +649,7 @@ export default function Home() {
 
               <SurfaceCard sx={{ p: { xs: 3, md: 4 } }}>
                 <Typography
-                  sx={{ fontWeight: 800, fontSize: 18, color: "#0f172a" }}
+                  sx={{ fontWeight: 800, fontSize: 18, color: "var(--text-primary)", transition: "color 0.3s ease" }}
                 >
                   Honors & Certificates
                 </Typography>
@@ -628,7 +660,7 @@ export default function Home() {
 
               <SurfaceCard sx={{ p: { xs: 3, md: 4 } }}>
                 <Typography
-                  sx={{ fontWeight: 800, fontSize: 18, color: "#0f172a" }}
+                  sx={{ fontWeight: 800, fontSize: 18, color: "var(--text-primary)", transition: "color 0.3s ease" }}
                 >
                   References
                 </Typography>
@@ -639,12 +671,13 @@ export default function Home() {
                       sx={{
                         p: 2.5,
                         borderRadius: "18px",
-                        bgcolor: "rgba(255,255,255,0.7)",
-                        border: "1px solid rgba(124, 58, 237, 0.08)",
+                        bgcolor: "var(--chip-bg)",
+                        border: "1px solid var(--card-border)",
+                        transition: "all 0.3s ease",
                       }}
                     >
                       <Typography
-                        sx={{ fontWeight: 900, color: "#0f172a", fontSize: 15 }}
+                        sx={{ fontWeight: 900, color: "var(--text-primary)", fontSize: 15, transition: "color 0.3s ease" }}
                       >
                         {reference.name}
                       </Typography>
@@ -659,11 +692,11 @@ export default function Home() {
                         {reference.role}
                       </Typography>
                       <Typography
-                        sx={{ color: "#475569", fontSize: 14, mt: 0.8, fontWeight: 500 }}
+                        sx={{ color: "var(--text-secondary)", fontSize: 14, mt: 0.8, fontWeight: 500, transition: "color 0.3s ease" }}
                       >
                         {reference.phone}
                       </Typography>
-                      <Typography sx={{ color: "#475569", fontSize: 14, fontWeight: 500 }}>
+                      <Typography sx={{ color: "var(--text-secondary)", fontSize: 14, fontWeight: 500, transition: "color 0.3s ease" }}>
                         {reference.email}
                       </Typography>
                     </Box>
@@ -692,13 +725,14 @@ export default function Home() {
                         mt: 1.5,
                         fontSize: 20,
                         fontWeight: 900,
-                        color: "#0f172a",
+                        color: "var(--text-primary)",
+                        transition: "color 0.3s ease",
                       }}
                     >
                       {item.title}
                     </Typography>
                     <Typography
-                      sx={{ mt: 1.5, color: "#64748b", lineHeight: 1.75, fontSize: "14.5px" }}
+                      sx={{ mt: 1.5, color: "var(--text-secondary)", lineHeight: 1.75, fontSize: "14.5px", transition: "color 0.3s ease" }}
                     >
                       {item.description}
                     </Typography>
@@ -736,11 +770,11 @@ export default function Home() {
             <Stack spacing={3.5}>
               <SurfaceCard sx={{ p: { xs: 3, md: 4 } }}>
                 <Typography
-                  sx={{ fontSize: 22, fontWeight: 900, color: "#0f172a" }}
+                  sx={{ fontSize: 22, fontWeight: 900, color: "var(--text-primary)", transition: "color 0.3s ease" }}
                 >
                   Contact details
                 </Typography>
-                <Typography sx={{ mt: 1.5, color: "#64748b", lineHeight: 1.75 }}>
+                <Typography sx={{ mt: 1.5, color: "var(--text-secondary)", lineHeight: 1.75, transition: "color 0.3s ease" }}>
                   Prefer a direct message? Use any of the options below and I will
                   get back to you as soon as possible.
                 </Typography>
@@ -796,7 +830,7 @@ export default function Home() {
                           {item.title}
                         </Typography>
                         <Typography
-                          sx={{ mt: 0.35, color: "#334155", fontWeight: 600 }}
+                          sx={{ mt: 0.35, color: "var(--text-secondary)", fontWeight: 600, transition: "color 0.3s ease" }}
                         >
                           {item.value}
                         </Typography>
@@ -833,12 +867,13 @@ export default function Home() {
                       px: 3.5,
                       py: 1.5,
                       borderRadius: "999px",
-                      bgcolor: "rgba(255,255,255,0.82)",
-                      color: "#0f172a",
+                      bgcolor: "var(--chip-bg)",
+                      color: "var(--text-primary)",
                       textTransform: "none",
                       fontWeight: 700,
-                      border: "1px solid rgba(124, 58, 237, 0.16)",
-                      "&:hover": { bgcolor: "white" },
+                      border: "1px solid var(--card-border)",
+                      transition: "all 0.3s ease",
+                      "&:hover": { bgcolor: "var(--card-bg)" },
                     }}
                   >
                     Back to top
@@ -849,11 +884,11 @@ export default function Home() {
               {/* Social Media Link Integration */}
               <SurfaceCard sx={{ p: { xs: 3, md: 4 } }}>
                 <Typography
-                  sx={{ fontSize: 22, fontWeight: 900, color: "#0f172a" }}
+                  sx={{ fontSize: 22, fontWeight: 900, color: "var(--text-primary)", transition: "color 0.3s ease" }}
                 >
                   Social Media
                 </Typography>
-                <Typography sx={{ mt: 1.5, color: "#64748b", lineHeight: 1.75 }}>
+                <Typography sx={{ mt: 1.5, color: "var(--text-secondary)", lineHeight: 1.75, transition: "color 0.3s ease" }}>
                   Connect with me on the platforms below for updates, work, or a
                   quick hello.
                 </Typography>
@@ -895,18 +930,18 @@ export default function Home() {
 
               <SurfaceCard sx={{ p: { xs: 3, md: 4 } }}>
                 <Typography
-                  sx={{ fontSize: 22, fontWeight: 900, color: "#0f172a" }}
+                  sx={{ fontSize: 22, fontWeight: 900, color: "var(--text-primary)", transition: "color 0.3s ease" }}
                 >
                   Why this layout works
                 </Typography>
-                <Typography sx={{ mt: 1.5, color: "#64748b", lineHeight: 1.75 }}>
+                <Typography sx={{ mt: 1.5, color: "var(--text-secondary)", lineHeight: 1.75, transition: "color 0.3s ease" }}>
                   The page uses one visual language across the whole experience:
                   purple gradient accents, soft cards, consistent spacing, and
                   rounded corners. That keeps the portfolio clean even when the
                   content changes from section to section.
                 </Typography>
 
-                <Divider sx={{ my: 3.5, borderColor: "rgba(124, 58, 237, 0.1)" }} />
+                <Divider sx={{ my: 3.5, borderColor: "var(--divider-color)" }} />
 
                 <Stack spacing={2}>
                   {[
@@ -930,7 +965,7 @@ export default function Home() {
                           flexShrink: 0,
                         }}
                       />
-                      <Typography sx={{ color: "#334155", fontWeight: 600 }}>
+                      <Typography sx={{ color: "var(--text-secondary)", fontWeight: 600, transition: "color 0.3s ease" }}>
                         {item}
                       </Typography>
                     </Stack>
