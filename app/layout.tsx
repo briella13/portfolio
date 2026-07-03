@@ -10,8 +10,27 @@ const geistSans = Geist({
 });
 
 export const metadata: Metadata = {
-  title: "Mia Gabriella B. Gubat | Portfolio",
-  description: "Modern portfolio for a Graphic Designer and UI/UX Designer",
+  title: "Mia Gabriella B. Gubat | Design & QA Portfolio",
+  description: "Explore the graphic design, UI/UX interface layouts, and quality engineering work of Mia Gabriella B. Gubat. Delivering intentional, polished digital experiences.",
+  keywords: ["Mia Gabriella Gubat", "Graphic Design", "UI UX Design", "Quality Engineering", "Portfolio", "Web Design", "Invitation Cards", "Sorsogon"],
+  authors: [{ name: "Mia Gabriella Gubat" }],
+  openGraph: {
+    title: "Mia Gabriella B. Gubat | Design & QA Portfolio",
+    description: "Refined brand systems, poster layouts, web designs, and quality assurance portfolios.",
+    url: "https://gubatmia.com", // update if needed, standard url
+    siteName: "Mia Gabriella Gubat Portfolio",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Mia Gabriella B. Gubat | Design & QA Portfolio",
+    description: "Refined brand systems, poster layouts, web designs, and quality assurance portfolios.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
