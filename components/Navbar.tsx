@@ -32,6 +32,7 @@ export function Navbar() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeHash, setActiveHash] = useState("#home");
+  const activeHashRef = React.useRef("#home");
   const [theme, setTheme] = useState<"light" | "dark" | null>(null);
 
   const handleDrawerToggle = () => {
@@ -42,7 +43,11 @@ export function Navbar() {
     const currentTheme = (document.documentElement.getAttribute("data-theme") as "light" | "dark") || "light";
     setTheme(currentTheme);
 
-    const updateHash = () => setActiveHash(window.location.hash || "#home");
+    const updateHash = () => {
+      const h = window.location.hash || "#home";
+      activeHashRef.current = h;
+      setActiveHash(h);
+    };
     const visibleSections = new Map<string, number>();
 
     const observer = new IntersectionObserver(
@@ -56,7 +61,7 @@ export function Navbar() {
           }
         });
 
-        let bestHash = activeHash;
+        let bestHash = activeHashRef.current;
         let maxRatio = 0;
 
         visibleSections.forEach((ratio, hash) => {
@@ -67,6 +72,7 @@ export function Navbar() {
         });
 
         if (maxRatio > 0) {
+          activeHashRef.current = bestHash;
           setActiveHash(bestHash);
         }
       },
@@ -89,7 +95,8 @@ export function Navbar() {
       observer.disconnect();
       window.removeEventListener("hashchange", updateHash);
     };
-  }, [activeHash]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const toggleTheme = () => {
     if (!theme) return;
