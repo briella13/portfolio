@@ -54,6 +54,38 @@ export const featureCards: FeatureCard[] = [
 
 export const projectCards: ProjectCard[] = [
   {
+    title: "MIA Jewelry Branding",
+    category: "Brand Identity",
+    image: "/images/projects/MIA.png",
+    description: "A comprehensive brand identity and collateral design for MIA Jewelry.",
+    details: "A sophisticated brand design featuring logo creation, typography selection, color palette definition, and product mockup placements for a premium jewelry line.",
+    tools: ["Photoshop", "Illustrator"],
+  },
+  {
+    title: "White Claw Surge Poster",
+    category: "Poster Design",
+    image: "/images/projects/FRESH.png",
+    description: "A dynamic promotional poster for White Claw Hard Seltzer Surge.",
+    details: "High-energy beverage advertising featuring dynamic water splashes, fresh blueberries, and bold typography to emphasize the crisp and refreshing nature of the drink.",
+    tools: ["Photoshop", "Illustrator"],
+  },
+  {
+    title: "BELLA Magazine Cover",
+    category: "Magazine Design",
+    image: "/images/projects/BELLA.png",
+    description: "A summer fashion guide magazine cover featuring timeless elegance.",
+    details: "An elegant editorial cover design using deep reds and stark contrast, balancing sophisticated typography with compelling portrait photography.",
+    tools: ["Photoshop", "InDesign"],
+  },
+  {
+    title: "Adidas Portrait Session",
+    category: "Photography",
+    image: "/images/projects/adidas.png",
+    description: "A moody portrait photography session featuring Adidas casual wear.",
+    details: "A portrait study focusing on soft studio lighting, color grading, and relaxed posing, designed to fit into modern streetwear lookbooks.",
+    tools: ["Lightroom", "Photoshop"],
+  },
+  {
     title: "Fashion Hub Sale",
     category: "Poster Design",
     image: "/images/projects/fashion.png",
