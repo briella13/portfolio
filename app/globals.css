@@ -2,10 +2,11 @@
 
 :root {
   --background: linear-gradient(
-    135deg,
+    180deg,
     #f8fafc 0%,
-    #f3e8ff 35%,
-    #eef2ff 68%,
+    #f3e8ff 25%,
+    #ede9fe 55%,
+    #eef2ff 80%,
     #fdf2f8 100%
   );
   --foreground: #0f172a;
@@ -29,10 +30,12 @@
 
 [data-theme="dark"] {
   --background: linear-gradient(
-    135deg,
+    180deg,
     #090514 0%,
-    #0d0b21 50%,
-    #12091c 100%
+    #0c0820 20%,
+    #100b1e 45%,
+    #0e091b 70%,
+    #0b0717 100%
   );
   --foreground: #f8fafc;
   
@@ -71,27 +74,11 @@ html {
 }
 
 body {
-  background:
-    radial-gradient(
-      circle at top right,
-      var(--radial-1),
-      transparent 32%
-    ),
-    radial-gradient(
-      circle at 18% 18%,
-      var(--radial-2),
-      transparent 26%
-    ),
-    radial-gradient(
-      circle at bottom left,
-      var(--radial-3),
-      transparent 28%
-    ),
-    var(--background);
+  background: var(--background);
   color: var(--foreground);
   font-family: var(--font-geist-sans), sans-serif;
   overflow-x: hidden;
-  transition: color 0.3s ease;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 /* Premium micro-animations and utilities */
