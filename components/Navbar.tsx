@@ -1,7 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import Link from "next/link";
+import React, { useEffect, useState, useCallback } from "react";
 import { usePathname } from "next/navigation";
 import {
   Box,
@@ -98,6 +97,15 @@ export function Navbar() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const scrollTo = useCallback((hash: string) => {
+    // Replace the URL hash without appending to existing one
+    history.pushState(null, "", hash);
+    activeHashRef.current = hash;
+    setActiveHash(hash);
+    const el = document.querySelector(hash);
+    if (el) el.scrollIntoView({ behavior: "smooth" });
+  }, []);
+
   const toggleTheme = () => {
     if (!theme) return;
     const nextTheme = theme === "light" ? "dark" : "light";
@@ -139,9 +147,10 @@ export function Navbar() {
           transition: "background-color 0.3s ease, border-color 0.3s ease",
         }}
       >
-        <Typography
-          component={Link}
-          href="#home"
+        <Box
+          component="a"
+          href={"#home"}
+          onClick={(e) => { e.preventDefault(); scrollTo("#home"); }}
           sx={{
             textDecoration: "none",
             fontSize: { xs: "14px", md: "16px" },
@@ -150,10 +159,11 @@ export function Navbar() {
             textTransform: "uppercase",
             color: "var(--text-primary)",
             transition: "color 0.3s ease",
+            cursor: "pointer",
           }}
         >
           Mia Gubat
-        </Typography>
+        </Box>
 
         {/* Desktop Navigation & Actions */}
         <Stack
@@ -175,9 +185,10 @@ export function Navbar() {
           >
             {navItems.map((item) => (
               <Box component="li" key={item.label}>
-                <Typography
-                  component={Link}
+                <Box
+                  component="a"
                   href={item.href}
+                  onClick={(e) => { e.preventDefault(); scrollTo(item.hash); }}
                   sx={{
                     display: "inline-flex",
                     alignItems: "center",
@@ -194,6 +205,7 @@ export function Navbar() {
                       ? "rgba(124, 58, 237, 0.08)"
                       : "transparent",
                     transition: "all 0.2s ease",
+                    cursor: "pointer",
                     "&:hover": {
                       color: "#7c3aed",
                       backgroundColor: "rgba(124, 58, 237, 0.06)",
@@ -201,7 +213,7 @@ export function Navbar() {
                   }}
                 >
                   {item.label}
-                </Typography>
+                </Box>
               </Box>
             ))}
           </Stack>
@@ -288,10 +300,10 @@ export function Navbar() {
         <List sx={{ px: 2 }}>
           {navItems.map((item) => (
             <ListItem key={item.label} disablePadding sx={{ mb: 1.5 }}>
-              <Typography
-                component={Link}
+              <Box
+                component="a"
                 href={item.href}
-                onClick={handleDrawerToggle}
+                onClick={(e) => { e.preventDefault(); scrollTo(item.hash); handleDrawerToggle(); }}
                 sx={{
                   width: "100%",
                   textAlign: "right",
@@ -308,6 +320,7 @@ export function Navbar() {
                     ? "rgba(124, 58, 237, 0.08)"
                     : "transparent",
                   transition: "all 0.2s ease",
+                  cursor: "pointer",
                   "&:hover": {
                     color: "#7c3aed",
                     backgroundColor: "rgba(124, 58, 237, 0.06)",
@@ -315,7 +328,7 @@ export function Navbar() {
                 }}
               >
                 {item.label}
-              </Typography>
+              </Box>
             </ListItem>
           ))}
         </List>
