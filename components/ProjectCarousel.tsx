@@ -30,6 +30,8 @@ export function ProjectCarousel() {
   const carouselRef = useRef<HTMLDivElement>(null);
   const [scrollPosition, setScrollPosition] = useState(0);
   const [maxScroll, setMaxScroll] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
+  const autoScrollRef = useRef<ReturnType<typeof setInterval> | null>(null);
   
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
@@ -101,6 +103,26 @@ export function ProjectCarousel() {
       });
     }
   };
+
+  // Auto-scroll: advance right every 3.5s, loop back to start, pause on hover/lightbox
+  useEffect(() => {
+    if (layoutMode !== "carousel" || isHovered || selectedProjectIndex !== null) {
+      if (autoScrollRef.current) clearInterval(autoScrollRef.current);
+      return;
+    }
+    autoScrollRef.current = setInterval(() => {
+      if (!carouselRef.current) return;
+      const { scrollLeft, scrollWidth, clientWidth } = carouselRef.current;
+      const atEnd = scrollLeft >= scrollWidth - clientWidth - 10;
+      carouselRef.current.scrollTo({
+        left: atEnd ? 0 : scrollLeft + clientWidth * 0.75,
+        behavior: "smooth",
+      });
+    }, 3500);
+    return () => {
+      if (autoScrollRef.current) clearInterval(autoScrollRef.current);
+    };
+  }, [layoutMode, isHovered, selectedProjectIndex, filteredProjects]);
 
   // Keyboard navigation for Lightbox
   useEffect(() => {
@@ -338,6 +360,8 @@ export function ProjectCarousel() {
           <Box
             ref={carouselRef}
             onScroll={handleScroll}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
             sx={{
               display: "flex",
               gap: 3.5,
