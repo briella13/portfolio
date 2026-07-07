@@ -4,6 +4,9 @@
   --background: #f5f5dc;
   --foreground: #38040e;
   
+  --accent: #38040e;
+  --accent-rgb: 56, 4, 14;
+
   --text-primary: #38040e;
   --text-secondary: rgba(56, 4, 14, 0.7);
   --card-bg: rgba(255, 255, 255, 0.6);
@@ -25,6 +28,9 @@
   --background: #38040e;
   --foreground: #f5f5dc;
   
+  --accent: #f5f5dc;
+  --accent-rgb: 245, 245, 220;
+
   --text-primary: #f5f5dc;
   --text-secondary: rgba(245, 245, 220, 0.75);
   --card-bg: rgba(40, 2, 9, 0.6);

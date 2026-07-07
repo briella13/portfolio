@@ -13,7 +13,7 @@ export function SurfaceCard({ children, sx }: { children: ReactNode; sx?: object
         transition: "transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, background-color 0.3s ease, border-color 0.3s ease",
         "&:hover": sx && (sx as any).cursor === "pointer" ? {
           transform: "translateY(-4px)",
-          boxShadow: "0 30px 70px rgba(245, 245, 220, 0.12)",
+          boxShadow: "0 30px 70px rgba(var(--accent-rgb), 0.12)",
         } : {},
         ...sx,
       }}
@@ -22,4 +22,5 @@ export function SurfaceCard({ children, sx }: { children: ReactNode; sx?: object
     </Box>
   );
 }
+
 

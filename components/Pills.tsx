@@ -15,9 +15,9 @@ export function Pills({ items }: { items: readonly string[] }) {
             color: "var(--text-secondary)",
             transition: "all 0.25s ease",
             "&:hover": {
-              bgcolor: "rgba(245, 245, 220, 0.05)",
-              borderColor: "#f5f5dc",
-              color: "#f5f5dc",
+              bgcolor: "rgba(var(--accent-rgb), 0.05)",
+              borderColor: "var(--accent)",
+              color: "var(--accent)",
               transform: "scale(1.05)",
             },
           }}
@@ -26,5 +26,6 @@ export function Pills({ items }: { items: readonly string[] }) {
     </Stack>
   );
 }
+
 
 

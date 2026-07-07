@@ -19,12 +19,12 @@ export function SectionTitle({
           py: 0.5,
           bgcolor: "var(--chip-bg)",
           border: "1px solid var(--card-border)",
-          color: "#f5f5dc",
+          color: "var(--accent)",
           fontWeight: 700,
           fontSize: "11px",
           letterSpacing: "0.14em",
           textTransform: "uppercase",
-          boxShadow: "0 4px 12px rgba(245, 245, 220, 0.05)",
+          boxShadow: "0 4px 12px rgba(var(--accent-rgb), 0.05)",
           transition: "all 0.3s ease",
         }}
       />
@@ -59,5 +59,6 @@ export function SectionTitle({
     </Box>
   );
 }
+
 
 
