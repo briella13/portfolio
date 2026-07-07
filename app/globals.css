@@ -1,59 +1,45 @@
 @import "tailwindcss";
 
 :root {
-  --background: linear-gradient(
-    180deg,
-    #f8fafc 0%,
-    #f3e8ff 25%,
-    #ede9fe 55%,
-    #eef2ff 80%,
-    #fdf2f8 100%
-  );
-  --foreground: #0f172a;
+  --background: #f5f5dc;
+  --foreground: #38040e;
   
-  --text-primary: #0f172a;
-  --text-secondary: #475569;
-  --card-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.62));
-  --card-border: rgba(124, 58, 237, 0.12);
-  --divider-color: rgba(124, 58, 237, 0.1);
-  --chip-bg: rgba(255, 255, 255, 0.8);
-  --chip-text: #1e293b;
-  --glass-nav: rgba(255, 255, 255, 0.72);
-  --nav-border: rgba(148, 163, 184, 0.18);
-  --dialog-bg: rgba(255, 255, 255, 0.95);
-  --dialog-card-bg: #ffffff;
-  --radial-1: rgba(196, 181, 253, 0.24);
-  --radial-2: rgba(168, 85, 247, 0.16);
-  --radial-3: rgba(147, 197, 253, 0.22);
+  --text-primary: #38040e;
+  --text-secondary: rgba(56, 4, 14, 0.7);
+  --card-bg: rgba(255, 255, 255, 0.6);
+  --card-border: rgba(56, 4, 14, 0.15);
+  --divider-color: rgba(56, 4, 14, 0.1);
+  --chip-bg: rgba(255, 255, 255, 0.7);
+  --chip-text: #38040e;
+  --glass-nav: rgba(245, 245, 220, 0.75);
+  --nav-border: rgba(56, 4, 14, 0.15);
+  --dialog-bg: rgba(245, 245, 220, 0.95);
+  --dialog-card-bg: #f5f5dc;
+  --radial-1: rgba(56, 4, 14, 0.08);
+  --radial-2: rgba(56, 4, 14, 0.05);
+  --radial-3: rgba(56, 4, 14, 0.06);
   --form-input-bg: rgba(255, 255, 255, 0.4);
 }
 
 [data-theme="dark"] {
-  --background: linear-gradient(
-    180deg,
-    #090514 0%,
-    #0c0820 20%,
-    #100b1e 45%,
-    #0e091b 70%,
-    #0b0717 100%
-  );
-  --foreground: #f8fafc;
+  --background: #38040e;
+  --foreground: #f5f5dc;
   
-  --text-primary: #f8fafc;
-  --text-secondary: #cbd5e1;
-  --card-bg: linear-gradient(135deg, rgba(17, 12, 34, 0.75), rgba(10, 8, 24, 0.55));
-  --card-border: rgba(168, 85, 247, 0.22);
-  --divider-color: rgba(168, 85, 247, 0.18);
-  --chip-bg: rgba(17, 12, 34, 0.6);
-  --chip-text: #cbd5e1;
-  --glass-nav: rgba(9, 5, 20, 0.75);
-  --nav-border: rgba(168, 85, 247, 0.25);
-  --dialog-bg: rgba(9, 5, 20, 0.95);
-  --dialog-card-bg: #0d091a;
-  --radial-1: rgba(168, 85, 247, 0.28);
-  --radial-2: rgba(236, 72, 153, 0.18);
-  --radial-3: rgba(59, 130, 246, 0.2);
-  --form-input-bg: rgba(17, 12, 34, 0.4);
+  --text-primary: #f5f5dc;
+  --text-secondary: rgba(245, 245, 220, 0.75);
+  --card-bg: rgba(40, 2, 9, 0.6);
+  --card-border: rgba(245, 245, 220, 0.15);
+  --divider-color: rgba(245, 245, 220, 0.12);
+  --chip-bg: rgba(40, 2, 9, 0.7);
+  --chip-text: #f5f5dc;
+  --glass-nav: rgba(56, 4, 14, 0.85);
+  --nav-border: rgba(245, 245, 220, 0.15);
+  --dialog-bg: rgba(56, 4, 14, 0.95);
+  --dialog-card-bg: #2b020a;
+  --radial-1: rgba(245, 245, 220, 0.08);
+  --radial-2: rgba(245, 245, 220, 0.05);
+  --radial-3: rgba(245, 245, 220, 0.06);
+  --form-input-bg: rgba(40, 2, 9, 0.4);
 }
 
 @theme inline {
