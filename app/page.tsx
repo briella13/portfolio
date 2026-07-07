@@ -428,6 +428,7 @@ export default function Home() {
                       fill
                       sizes="96px"
                       style={{ objectFit: "contain" }}
+                      className="dark-invert"
                     />
                   </Box>
                   <Box sx={{ display: "flex", flexDirection: "column", justifyContent: "center" }}>

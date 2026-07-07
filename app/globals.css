@@ -110,3 +110,7 @@ body {
 .MuiBox-root:hover .project-tile-image {
   transform: scale(1.045);
 }
+
+[data-theme="dark"] .dark-invert {
+  filter: invert(1) brightness(2);
+}
