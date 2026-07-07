@@ -283,6 +283,5 @@ export const toolsData: ToolInfo[] = ([
   { name: "Google Sheets", category: "General", description: "Data management and spreadsheets", projectCount: 0 },
 ] as ToolInfo[]).map(tool => ({
   ...tool,
-  projectCount: projectCards.filter(p => p.tools.includes(tool.name)).length
+  projectCount: projectCards.filter(p => p.tools?.includes(tool.name)).length
 }));
-
