@@ -215,22 +215,27 @@ export const timeline: TimelineItem[] = [
       "Building design and technical foundations while sharpening UI/UX thinking.",
   },
   {
-    title: "Event Organizer and Event Management",
-    meta: "Experience",
+    title: "Event Organizer",
+    meta: "Experience · 2023 – 2025",
     description:
-      "Planning, scheduling, and coordinating moving parts to keep events on track.",
+      "Planned and coordinated promotional events, designed event materials, and managed schedules.",
   },
   {
-    title: "Invitation, Poster, and Web Projects",
-    meta: "Portfolio Work",
+    title: "Quality Engineer Intern",
+    meta: "Experience · 2025 – 2026",
     description:
-      "Design work across print, web, and quality assurance tasks with a consistent finish.",
+      "Performed manual testing for web portals, reported bugs, and assisted in preparing project documentation.",
+  },
+  {
+    title: "Documentarian",
+    meta: "Face Recognition Attendance System · 2025 – 2026",
+    description:
+      "Created technical documentation, coordinated updates, and developed presentation materials for stakeholders.",
   },
 ];
 
 export const certificates = [
   "COMMENDATION",
-  "JUDGE",
   "OUTSTANDING CAPSTONE PROJECT",
   "ACADEMIC DISTINCTION",
   "DEAN'S LISTER",

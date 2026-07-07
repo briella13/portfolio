@@ -74,7 +74,7 @@ export default function Home() {
         >
           <Box>
             <Chip
-              label="Graphic Designer · UI/UX Designer"
+              label="Digital Marketing · Graphic Designer / UI/UX Designer"
               sx={{
                 px: 1.5,
                 bgcolor: "var(--chip-bg)",
