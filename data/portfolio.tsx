@@ -273,7 +273,7 @@ export type ToolInfo = {
   projectCount: number;
 };
 
-export const toolsData: ToolInfo[] = [
+export const toolsData: ToolInfo[] = ([
   { name: "Figma", category: "Design", description: "Interface design, layouts and wireframing", projectCount: 0 },
   { name: "Canva", category: "Design", description: "Graphic design, posters and mockups", projectCount: 0 },
   { name: "Microsoft Excel", category: "General", description: "Data preparation, analysis and tracking", projectCount: 0 },
@@ -281,7 +281,7 @@ export const toolsData: ToolInfo[] = [
   { name: "PowerPoint", category: "General", description: "Presentation design and slides", projectCount: 0 },
   { name: "Google Docs", category: "General", description: "Collaborative writing and documentation", projectCount: 0 },
   { name: "Google Sheets", category: "General", description: "Data management and spreadsheets", projectCount: 0 },
-].map(tool => ({
+] as ToolInfo[]).map(tool => ({
   ...tool,
   projectCount: projectCards.filter(p => p.tools.includes(tool.name)).length
 }));
