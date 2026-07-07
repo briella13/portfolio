@@ -581,7 +581,7 @@ export default function Home() {
                   {[
                     {
                       icon: <LocationOnOutlinedIcon />,
-                      value: "Imperial Homes, Pangpang, Sorsogon",
+                      value: "San Dionisio, La Huerta, Parañaque City",
                     },
                     { icon: <PhoneOutlinedIcon />, value: "09859851189 / 09946542201" },
                     {
@@ -795,7 +795,7 @@ export default function Home() {
                     {
                       icon: <LocationOnOutlinedIcon />,
                       title: "Address",
-                      value: "Imperial Homes, Pangpang, Sorsogon",
+                      value: "San Dionisio, La Huerta, Parañaque City",
                     },
                     {
                       icon: <PhoneOutlinedIcon />,
