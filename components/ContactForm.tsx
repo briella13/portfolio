@@ -132,7 +132,7 @@ export function ContactForm() {
             py: 1.25,
             borderRadius: "999px",
             background: "linear-gradient(135deg, var(--accent) 0%, var(--accent) 100%)",
-            color: "white",
+            color: "var(--background)",
             fontWeight: 700,
             textTransform: "none",
             "&:hover": {
@@ -220,7 +220,7 @@ export function ContactForm() {
               py: 1.6,
               borderRadius: "999px",
               background: "linear-gradient(135deg, var(--accent) 0%, var(--accent) 100%)",
-              color: "white",
+              color: "var(--background)",
               fontWeight: 700,
               fontSize: "15px",
               textTransform: "none",

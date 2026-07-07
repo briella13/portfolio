@@ -159,7 +159,7 @@ export default function Home() {
                   borderRadius: "999px",
                   background:
                     "linear-gradient(135deg, var(--accent) 0%, var(--accent) 100%)",
-                  color: "white",
+                  color: "var(--background)",
                   textTransform: "none",
                   fontWeight: 700,
                   fontSize: 16,
@@ -861,7 +861,7 @@ export default function Home() {
                       borderRadius: "999px",
                       background:
                         "linear-gradient(135deg, var(--accent) 0%, var(--accent) 100%)",
-                      color: "white",
+                      color: "var(--background)",
                       textTransform: "none",
                       fontWeight: 700,
                       "&:hover": {
