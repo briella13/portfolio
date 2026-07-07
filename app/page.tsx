@@ -540,11 +540,11 @@ export default function Home() {
                     }}
                   >
                     <Image
-                      src="/images/projects/my-profile.png"
+                      src="/images/heroImage.png"
                       alt="Mia Gabriella B. Gubat"
                       fill
                       sizes="84px"
-                      style={{ objectFit: "cover" }}
+                      style={{ objectFit: "cover", transform: "scale(1.4) translateY(-10%)" }}
                     />
                   </Box>
                   <Box>
