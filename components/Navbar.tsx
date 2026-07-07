@@ -200,15 +200,15 @@ export function Navbar() {
                     fontWeight: 700,
                     letterSpacing: "0.04em",
                     textTransform: "uppercase",
-                    color: isActive(item.hash) ? "#38040e" : "var(--text-primary)",
+                    color: isActive(item.hash) ? "#f5f5dc" : "var(--text-primary)",
                     backgroundColor: isActive(item.hash)
-                      ? "rgba(124, 58, 237, 0.08)"
+                      ? "rgba(245, 245, 220, 0.08)"
                       : "transparent",
                     transition: "all 0.2s ease",
                     cursor: "pointer",
                     "&:hover": {
-                      color: "#38040e",
-                      backgroundColor: "rgba(124, 58, 237, 0.06)",
+                      color: "#f5f5dc",
+                      backgroundColor: "rgba(245, 245, 220, 0.06)",
                     },
                   }}
                 >
@@ -231,8 +231,8 @@ export function Navbar() {
                 bgcolor: "var(--chip-bg)",
                 transition: "all 0.25s ease",
                 "&:hover": {
-                  bgcolor: "rgba(124, 58, 237, 0.08)",
-                  borderColor: "#38040e",
+                  bgcolor: "rgba(245, 245, 220, 0.08)",
+                  borderColor: "#f5f5dc",
                   transform: "rotate(15deg)",
                 },
               }}
@@ -315,15 +315,15 @@ export function Navbar() {
                   letterSpacing: "0.04em",
                   textTransform: "uppercase",
                   fontSize: "14px",
-                  color: isActive(item.hash) ? "#38040e" : "var(--text-primary)",
+                  color: isActive(item.hash) ? "#f5f5dc" : "var(--text-primary)",
                   backgroundColor: isActive(item.hash)
-                    ? "rgba(124, 58, 237, 0.08)"
+                    ? "rgba(245, 245, 220, 0.08)"
                     : "transparent",
                   transition: "all 0.2s ease",
                   cursor: "pointer",
                   "&:hover": {
-                    color: "#38040e",
-                    backgroundColor: "rgba(124, 58, 237, 0.06)",
+                    color: "#f5f5dc",
+                    backgroundColor: "rgba(245, 245, 220, 0.06)",
                   },
                 }}
               >
@@ -336,4 +336,5 @@ export function Navbar() {
     </Box>
   );
 }
+
 

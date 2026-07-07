@@ -180,7 +180,7 @@ export function ProjectCarousel() {
           sx={{
             maxWidth: "100%",
             "& .MuiTabs-indicator": {
-              backgroundColor: "#38040e",
+              backgroundColor: "#f5f5dc",
               height: "3px",
               borderRadius: "3px",
             },
@@ -192,7 +192,7 @@ export function ProjectCarousel() {
               px: { xs: 2, sm: 3 },
               transition: "color 0.3s ease",
               "&.Mui-selected": {
-                color: "#38040e",
+                color: "#f5f5dc",
               },
             },
           }}
@@ -209,7 +209,7 @@ export function ProjectCarousel() {
           sx={{
             p: 0.75,
             borderRadius: "999px",
-            bgcolor: "rgba(124, 58, 237, 0.05)",
+            bgcolor: "rgba(245, 245, 220, 0.05)",
             border: "1px solid var(--card-border)",
             transition: "all 0.3s ease",
           }}
@@ -221,9 +221,9 @@ export function ProjectCarousel() {
               p: 1,
               bgcolor: layoutMode === "carousel" ? "var(--dialog-card-bg)" : "transparent",
               boxShadow: layoutMode === "carousel" ? "0 4px 12px rgba(15, 23, 42, 0.04)" : "none",
-              color: layoutMode === "carousel" ? "#38040e" : "var(--text-secondary)",
+              color: layoutMode === "carousel" ? "#f5f5dc" : "var(--text-secondary)",
               transition: "all 0.25s ease",
-              "&:hover": { bgcolor: layoutMode === "carousel" ? "var(--dialog-card-bg)" : "rgba(124, 58, 237, 0.08)" },
+              "&:hover": { bgcolor: layoutMode === "carousel" ? "var(--dialog-card-bg)" : "rgba(245, 245, 220, 0.08)" },
             }}
           >
             <ViewCarouselRoundedIcon />
@@ -235,9 +235,9 @@ export function ProjectCarousel() {
               p: 1,
               bgcolor: layoutMode === "grid" ? "var(--dialog-card-bg)" : "transparent",
               boxShadow: layoutMode === "grid" ? "0 4px 12px rgba(15, 23, 42, 0.04)" : "none",
-              color: layoutMode === "grid" ? "#38040e" : "var(--text-secondary)",
+              color: layoutMode === "grid" ? "#f5f5dc" : "var(--text-secondary)",
               transition: "all 0.25s ease",
-              "&:hover": { bgcolor: layoutMode === "grid" ? "var(--dialog-card-bg)" : "rgba(124, 58, 237, 0.08)" },
+              "&:hover": { bgcolor: layoutMode === "grid" ? "var(--dialog-card-bg)" : "rgba(245, 245, 220, 0.08)" },
             }}
           >
             <GridViewRoundedIcon />
@@ -251,7 +251,7 @@ export function ProjectCarousel() {
           direction="row"
           spacing={1.5}
           alignItems="center"
-          sx={{ mb: 4, p: 2, borderRadius: "18px", bgcolor: "rgba(124, 58, 237, 0.06)", border: "1px solid var(--card-border)", animation: "fadeIn 0.3s ease" }}
+          sx={{ mb: 4, p: 2, borderRadius: "18px", bgcolor: "rgba(245, 245, 220, 0.06)", border: "1px solid var(--card-border)", animation: "fadeIn 0.3s ease" }}
         >
           <Typography sx={{ fontSize: "14px", fontWeight: 700, color: "var(--text-secondary)" }}>
             Viewing projects using:
@@ -261,10 +261,10 @@ export function ProjectCarousel() {
             onDelete={() => setActiveTool(null)}
             sx={{
               bgcolor: "var(--dialog-card-bg)",
-              border: "1px solid #38040e",
-              color: "#38040e",
+              border: "1px solid #f5f5dc",
+              color: "#f5f5dc",
               fontWeight: 800,
-              "& .MuiChip-deleteIcon": { color: "#38040e" },
+              "& .MuiChip-deleteIcon": { color: "#f5f5dc" },
             }}
           />
         </Stack>
@@ -315,7 +315,7 @@ export function ProjectCarousel() {
                 bgcolor: "var(--dialog-card-bg)",
                 boxShadow: "0 10px 25px rgba(15, 23, 42, 0.1)",
                 border: "1px solid var(--card-border)",
-                color: "#38040e",
+                color: "#f5f5dc",
                 display: { xs: "none", md: "flex" },
                 transition: "all 0.3s ease",
                 "&:hover": {
@@ -343,7 +343,7 @@ export function ProjectCarousel() {
                 bgcolor: "var(--dialog-card-bg)",
                 boxShadow: "0 10px 25px rgba(15, 23, 42, 0.1)",
                 border: "1px solid var(--card-border)",
-                color: "#38040e",
+                color: "#f5f5dc",
                 display: { xs: "none", md: "flex" },
                 transition: "all 0.3s ease",
                 "&:hover": {
@@ -546,9 +546,9 @@ export function ProjectCarousel() {
                     sx={{
                       mb: 2,
                       px: 0.5,
-                      bgcolor: "rgba(124, 58, 237, 0.08)",
-                      border: "1px solid rgba(124, 58, 237, 0.15)",
-                      color: "#38040e",
+                      bgcolor: "rgba(245, 245, 220, 0.08)",
+                      border: "1px solid rgba(245, 245, 220, 0.15)",
+                      color: "#f5f5dc",
                       fontWeight: 800,
                       fontSize: "11px",
                       letterSpacing: "0.08em",
@@ -625,9 +625,9 @@ export function ProjectCarousel() {
                               fontSize: "12px",
                               transition: "all 0.25s ease",
                               "&:hover": {
-                                bgcolor: "rgba(124, 58, 237, 0.05)",
-                                color: "#38040e",
-                                borderColor: "rgba(124, 58, 237, 0.2)",
+                                bgcolor: "rgba(245, 245, 220, 0.05)",
+                                color: "#f5f5dc",
+                                borderColor: "rgba(245, 245, 220, 0.2)",
                               },
                             }}
                           />
@@ -664,7 +664,7 @@ export function ProjectCarousel() {
                         borderColor: "var(--card-border)",
                         color: "var(--text-secondary)",
                         transition: "all 0.25s ease",
-                        "&:hover": { borderColor: "#38040e", bgcolor: "var(--chip-bg)" },
+                        "&:hover": { borderColor: "#f5f5dc", bgcolor: "var(--chip-bg)" },
                       }}
                     >
                       Close
@@ -699,7 +699,7 @@ function ProjectCardTile({ project, onClick }: { project: ProjectCard; onClick: 
           sx={{
             position: "relative",
             height: { xs: 230, md: 270 },
-            backgroundColor: "rgba(124, 58, 237, 0.03)",
+            backgroundColor: "rgba(245, 245, 220, 0.03)",
             flexShrink: 0,
             overflow: "hidden",
           }}
@@ -733,7 +733,7 @@ function ProjectCardTile({ project, onClick }: { project: ProjectCard; onClick: 
                 fontWeight: 800,
                 letterSpacing: "0.14em",
                 textTransform: "uppercase",
-                color: "#38040e",
+                color: "#f5f5dc",
                 mb: 1,
               }}
             >
@@ -777,4 +777,5 @@ function ProjectCardTile({ project, onClick }: { project: ProjectCard; onClick: 
     </SurfaceCard>
   );
 }
+
 

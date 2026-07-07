@@ -78,10 +78,10 @@ export function ToolsVisualizer() {
                 justifyContent: "space-between",
                 minHeight: 180,
                 border: isHovered
-                  ? "1px solid #38040e"
+                  ? "1px solid #f5f5dc"
                   : "1px solid var(--card-border)",
                 transform: isHovered ? "translateY(-6px)" : "none",
-                boxShadow: isHovered ? "0 15px 35px rgba(124, 58, 237, 0.12)" : "none",
+                boxShadow: isHovered ? "0 15px 35px rgba(245, 245, 220, 0.12)" : "none",
                 transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
               }}
             >
@@ -97,8 +97,8 @@ export function ToolsVisualizer() {
                       sx={{
                         p: 1.25,
                         borderRadius: "12px",
-                        bgcolor: isHovered ? "rgba(124, 58, 237, 0.1)" : "rgba(124, 58, 237, 0.05)",
-                        color: isHovered ? "#38040e" : "var(--text-secondary)",
+                        bgcolor: isHovered ? "rgba(245, 245, 220, 0.1)" : "rgba(245, 245, 220, 0.05)",
+                        color: isHovered ? "#f5f5dc" : "var(--text-secondary)",
                         display: "inline-flex",
                         transition: "all 0.3s ease",
                       }}
@@ -153,7 +153,7 @@ export function ToolsVisualizer() {
                     opacity: isHovered ? 1 : 0.4,
                     transform: isHovered ? "translateX(0)" : "translateX(-4px)",
                     transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
-                    color: isHovered ? "#38040e" : "var(--text-secondary)",
+                    color: isHovered ? "#f5f5dc" : "var(--text-secondary)",
                   }}
                 >
                   <FilterAltOutlinedIcon sx={{ fontSize: "14px" }} />
@@ -169,4 +169,5 @@ export function ToolsVisualizer() {
     </Box>
   );
 }
+
 

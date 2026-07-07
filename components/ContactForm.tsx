@@ -90,12 +90,12 @@ export function ContactForm() {
         borderColor: "var(--card-border)",
         transition: "border-color 0.3s ease",
       },
-      "&:hover fieldset": { borderColor: "#38040e" },
-      "&.Mui-focused fieldset": { borderColor: "#38040e" },
+      "&:hover fieldset": { borderColor: "#f5f5dc" },
+      "&.Mui-focused fieldset": { borderColor: "#f5f5dc" },
     },
     "& .MuiInputLabel-root": {
       color: "var(--text-secondary)",
-      "&.Mui-focused": { color: "#38040e" },
+      "&.Mui-focused": { color: "#f5f5dc" },
     },
     "& .MuiFormHelperText-root": {
       color: "#ef4444",
@@ -131,7 +131,7 @@ export function ContactForm() {
             px: 4,
             py: 1.25,
             borderRadius: "999px",
-            background: "linear-gradient(135deg, #38040e 0%, #38040e 100%)",
+            background: "linear-gradient(135deg, #f5f5dc 0%, #f5f5dc 100%)",
             color: "white",
             fontWeight: 700,
             textTransform: "none",
@@ -219,17 +219,17 @@ export function ContactForm() {
             sx={{
               py: 1.6,
               borderRadius: "999px",
-              background: "linear-gradient(135deg, #38040e 0%, #38040e 100%)",
+              background: "linear-gradient(135deg, #f5f5dc 0%, #f5f5dc 100%)",
               color: "white",
               fontWeight: 700,
               fontSize: "15px",
               textTransform: "none",
-              boxShadow: "0 10px 24px rgba(124, 58, 237, 0.15)",
+              boxShadow: "0 10px 24px rgba(245, 245, 220, 0.15)",
               "&:hover": {
                 background: "linear-gradient(135deg, #6d28d9 0%, #9333ea 100%)",
               },
               "&.Mui-disabled": {
-                background: "rgba(124, 58, 237, 0.12)",
+                background: "rgba(245, 245, 220, 0.12)",
                 color: "rgba(0, 0, 0, 0.26)",
               },
             }}
@@ -248,4 +248,5 @@ export function ContactForm() {
     </SurfaceCard>
   );
 }
+
 
