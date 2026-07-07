@@ -19,7 +19,7 @@ export function SectionTitle({
           py: 0.5,
           bgcolor: "var(--chip-bg)",
           border: "1px solid var(--card-border)",
-          color: "#7c3aed",
+          color: "#38040e",
           fontWeight: 700,
           fontSize: "11px",
           letterSpacing: "0.14em",
@@ -59,3 +59,4 @@ export function SectionTitle({
     </Box>
   );
 }
+

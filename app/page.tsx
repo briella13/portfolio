@@ -79,7 +79,7 @@ export default function Home() {
                 px: 1.5,
                 bgcolor: "var(--chip-bg)",
                 border: "1px solid var(--card-border)",
-                color: "#7c3aed",
+                color: "#38040e",
                 fontWeight: 700,
                 fontSize: "11px",
                 letterSpacing: "0.08em",
@@ -141,7 +141,7 @@ export default function Home() {
                     transition: "all 0.25s ease",
                     "&:hover": {
                       bgcolor: "rgba(124, 58, 237, 0.04)",
-                      borderColor: "#7c3aed",
+                      borderColor: "#38040e",
                     },
                   }}
                 />
@@ -158,7 +158,7 @@ export default function Home() {
                   py: 1.6,
                   borderRadius: "999px",
                   background:
-                    "linear-gradient(135deg, #7c3aed 0%, #a855f7 100%)",
+                    "linear-gradient(135deg, #38040e 0%, #38040e 100%)",
                   color: "white",
                   textTransform: "none",
                   fontWeight: 700,
@@ -194,7 +194,7 @@ export default function Home() {
                   transition: "all 0.25s ease",
                   "&:hover": {
                     bgcolor: "var(--card-bg)",
-                    borderColor: "#7c3aed",
+                    borderColor: "#38040e",
                     transform: "translateY(-2px)",
                   },
                 }}
@@ -367,7 +367,7 @@ export default function Home() {
                   >
                     <Box
                       sx={{
-                        color: "#7c3aed",
+                        color: "#38040e",
                         display: "flex",
                         alignItems: "center",
                         fontSize: 28,
@@ -553,7 +553,7 @@ export default function Home() {
                         fontWeight: 800,
                         letterSpacing: "0.14em",
                         textTransform: "uppercase",
-                        color: "#7c3aed",
+                        color: "#38040e",
                       }}
                     >
                       Mia Gabriella B. Gubat
@@ -601,7 +601,7 @@ export default function Home() {
                           height: 40,
                           borderRadius: "12px",
                           bgcolor: "rgba(124,58,237,0.08)",
-                          color: "#7c3aed",
+                          color: "#38040e",
                           display: "flex",
                           alignItems: "center",
                           justifyContent: "center",
@@ -694,7 +694,7 @@ export default function Home() {
                       </Typography>
                       <Typography
                         sx={{
-                          color: "#7c3aed",
+                          color: "#38040e",
                           fontWeight: 700,
                           fontSize: 13,
                           mt: 0.2,
@@ -726,7 +726,7 @@ export default function Home() {
                         fontWeight: 800,
                         letterSpacing: "0.14em",
                         textTransform: "uppercase",
-                        color: "#7c3aed",
+                        color: "#38040e",
                       }}
                     >
                       {item.meta}
@@ -820,7 +820,7 @@ export default function Home() {
                           height: 44,
                           borderRadius: "14px",
                           bgcolor: "rgba(124,58,237,0.08)",
-                          color: "#7c3aed",
+                          color: "#38040e",
                           display: "flex",
                           alignItems: "center",
                           justifyContent: "center",
@@ -835,7 +835,7 @@ export default function Home() {
                             fontWeight: 800,
                             textTransform: "uppercase",
                             letterSpacing: "0.12em",
-                            color: "#7c3aed",
+                            color: "#38040e",
                           }}
                         >
                           {item.title}
@@ -859,7 +859,7 @@ export default function Home() {
                       py: 1.5,
                       borderRadius: "999px",
                       background:
-                        "linear-gradient(135deg, #7c3aed 0%, #a855f7 100%)",
+                        "linear-gradient(135deg, #38040e 0%, #38040e 100%)",
                       color: "white",
                       textTransform: "none",
                       fontWeight: 700,
@@ -918,11 +918,11 @@ export default function Home() {
                         height: 48,
                         borderRadius: "14px",
                         bgcolor: "rgba(124,58,237,0.06)",
-                        color: "#7c3aed",
+                        color: "#38040e",
                         border: "1px solid rgba(124, 58, 237, 0.12)",
                         transition: "all 0.25s ease",
                         "&:hover": {
-                          bgcolor: "#7c3aed",
+                          bgcolor: "#38040e",
                           color: "white",
                           transform: "translateY(-4px)",
                           boxShadow: "0 10px 20px rgba(124, 58, 237, 0.2)",
@@ -972,7 +972,7 @@ export default function Home() {
                           width: 10,
                           height: 10,
                           borderRadius: "999px",
-                          bgcolor: "#a855f7",
+                          bgcolor: "#38040e",
                           flexShrink: 0,
                         }}
                       />
@@ -990,3 +990,4 @@ export default function Home() {
     </Box>
   );
 }
+

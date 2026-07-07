@@ -180,7 +180,7 @@ export function ProjectCarousel() {
           sx={{
             maxWidth: "100%",
             "& .MuiTabs-indicator": {
-              backgroundColor: "#7c3aed",
+              backgroundColor: "#38040e",
               height: "3px",
               borderRadius: "3px",
             },
@@ -192,7 +192,7 @@ export function ProjectCarousel() {
               px: { xs: 2, sm: 3 },
               transition: "color 0.3s ease",
               "&.Mui-selected": {
-                color: "#7c3aed",
+                color: "#38040e",
               },
             },
           }}
@@ -221,7 +221,7 @@ export function ProjectCarousel() {
               p: 1,
               bgcolor: layoutMode === "carousel" ? "var(--dialog-card-bg)" : "transparent",
               boxShadow: layoutMode === "carousel" ? "0 4px 12px rgba(15, 23, 42, 0.04)" : "none",
-              color: layoutMode === "carousel" ? "#7c3aed" : "var(--text-secondary)",
+              color: layoutMode === "carousel" ? "#38040e" : "var(--text-secondary)",
               transition: "all 0.25s ease",
               "&:hover": { bgcolor: layoutMode === "carousel" ? "var(--dialog-card-bg)" : "rgba(124, 58, 237, 0.08)" },
             }}
@@ -235,7 +235,7 @@ export function ProjectCarousel() {
               p: 1,
               bgcolor: layoutMode === "grid" ? "var(--dialog-card-bg)" : "transparent",
               boxShadow: layoutMode === "grid" ? "0 4px 12px rgba(15, 23, 42, 0.04)" : "none",
-              color: layoutMode === "grid" ? "#7c3aed" : "var(--text-secondary)",
+              color: layoutMode === "grid" ? "#38040e" : "var(--text-secondary)",
               transition: "all 0.25s ease",
               "&:hover": { bgcolor: layoutMode === "grid" ? "var(--dialog-card-bg)" : "rgba(124, 58, 237, 0.08)" },
             }}
@@ -261,10 +261,10 @@ export function ProjectCarousel() {
             onDelete={() => setActiveTool(null)}
             sx={{
               bgcolor: "var(--dialog-card-bg)",
-              border: "1px solid #7c3aed",
-              color: "#7c3aed",
+              border: "1px solid #38040e",
+              color: "#38040e",
               fontWeight: 800,
-              "& .MuiChip-deleteIcon": { color: "#7c3aed" },
+              "& .MuiChip-deleteIcon": { color: "#38040e" },
             }}
           />
         </Stack>
@@ -315,7 +315,7 @@ export function ProjectCarousel() {
                 bgcolor: "var(--dialog-card-bg)",
                 boxShadow: "0 10px 25px rgba(15, 23, 42, 0.1)",
                 border: "1px solid var(--card-border)",
-                color: "#7c3aed",
+                color: "#38040e",
                 display: { xs: "none", md: "flex" },
                 transition: "all 0.3s ease",
                 "&:hover": {
@@ -343,7 +343,7 @@ export function ProjectCarousel() {
                 bgcolor: "var(--dialog-card-bg)",
                 boxShadow: "0 10px 25px rgba(15, 23, 42, 0.1)",
                 border: "1px solid var(--card-border)",
-                color: "#7c3aed",
+                color: "#38040e",
                 display: { xs: "none", md: "flex" },
                 transition: "all 0.3s ease",
                 "&:hover": {
@@ -548,7 +548,7 @@ export function ProjectCarousel() {
                       px: 0.5,
                       bgcolor: "rgba(124, 58, 237, 0.08)",
                       border: "1px solid rgba(124, 58, 237, 0.15)",
-                      color: "#7c3aed",
+                      color: "#38040e",
                       fontWeight: 800,
                       fontSize: "11px",
                       letterSpacing: "0.08em",
@@ -626,7 +626,7 @@ export function ProjectCarousel() {
                               transition: "all 0.25s ease",
                               "&:hover": {
                                 bgcolor: "rgba(124, 58, 237, 0.05)",
-                                color: "#7c3aed",
+                                color: "#38040e",
                                 borderColor: "rgba(124, 58, 237, 0.2)",
                               },
                             }}
@@ -664,7 +664,7 @@ export function ProjectCarousel() {
                         borderColor: "var(--card-border)",
                         color: "var(--text-secondary)",
                         transition: "all 0.25s ease",
-                        "&:hover": { borderColor: "#a855f7", bgcolor: "var(--chip-bg)" },
+                        "&:hover": { borderColor: "#38040e", bgcolor: "var(--chip-bg)" },
                       }}
                     >
                       Close
@@ -733,7 +733,7 @@ function ProjectCardTile({ project, onClick }: { project: ProjectCard; onClick: 
                 fontWeight: 800,
                 letterSpacing: "0.14em",
                 textTransform: "uppercase",
-                color: "#7c3aed",
+                color: "#38040e",
                 mb: 1,
               }}
             >
@@ -777,3 +777,4 @@ function ProjectCardTile({ project, onClick }: { project: ProjectCard; onClick: 
     </SurfaceCard>
   );
 }
+

@@ -200,14 +200,14 @@ export function Navbar() {
                     fontWeight: 700,
                     letterSpacing: "0.04em",
                     textTransform: "uppercase",
-                    color: isActive(item.hash) ? "#7c3aed" : "var(--text-primary)",
+                    color: isActive(item.hash) ? "#38040e" : "var(--text-primary)",
                     backgroundColor: isActive(item.hash)
                       ? "rgba(124, 58, 237, 0.08)"
                       : "transparent",
                     transition: "all 0.2s ease",
                     cursor: "pointer",
                     "&:hover": {
-                      color: "#7c3aed",
+                      color: "#38040e",
                       backgroundColor: "rgba(124, 58, 237, 0.06)",
                     },
                   }}
@@ -232,7 +232,7 @@ export function Navbar() {
                 transition: "all 0.25s ease",
                 "&:hover": {
                   bgcolor: "rgba(124, 58, 237, 0.08)",
-                  borderColor: "#7c3aed",
+                  borderColor: "#38040e",
                   transform: "rotate(15deg)",
                 },
               }}
@@ -315,14 +315,14 @@ export function Navbar() {
                   letterSpacing: "0.04em",
                   textTransform: "uppercase",
                   fontSize: "14px",
-                  color: isActive(item.hash) ? "#7c3aed" : "var(--text-primary)",
+                  color: isActive(item.hash) ? "#38040e" : "var(--text-primary)",
                   backgroundColor: isActive(item.hash)
                     ? "rgba(124, 58, 237, 0.08)"
                     : "transparent",
                   transition: "all 0.2s ease",
                   cursor: "pointer",
                   "&:hover": {
-                    color: "#7c3aed",
+                    color: "#38040e",
                     backgroundColor: "rgba(124, 58, 237, 0.06)",
                   },
                 }}
@@ -336,3 +336,4 @@ export function Navbar() {
     </Box>
   );
 }
+

@@ -70,7 +70,7 @@ body {
 /* Premium micro-animations and utilities */
 ::selection {
   background-color: rgba(124, 58, 237, 0.18);
-  color: #7c3aed;
+  color: #38040e;
 }
 
 @keyframes fadeIn {
@@ -100,3 +100,4 @@ body {
 [data-theme="dark"] .dark-invert {
   filter: invert(1) brightness(2);
 }
+

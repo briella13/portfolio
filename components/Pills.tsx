@@ -16,8 +16,8 @@ export function Pills({ items }: { items: readonly string[] }) {
             transition: "all 0.25s ease",
             "&:hover": {
               bgcolor: "rgba(124, 58, 237, 0.05)",
-              borderColor: "#7c3aed",
-              color: "#7c3aed",
+              borderColor: "#38040e",
+              color: "#38040e",
               transform: "scale(1.05)",
             },
           }}
@@ -26,3 +26,4 @@ export function Pills({ items }: { items: readonly string[] }) {
     </Stack>
   );
 }
+
