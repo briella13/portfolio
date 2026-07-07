@@ -263,8 +263,8 @@ export default function Home() {
                 position: "absolute",
                 inset: 18,
                 borderRadius: "28px",
-                background:
-                  "linear-gradient(135deg, rgba(124,58,237,0.14), rgba(168,85,247,0.08), rgba(236,72,153,0.1))",
+                background: "var(--accent)",
+                opacity: 0.8,
               }}
             />
             <Box
@@ -272,6 +272,7 @@ export default function Home() {
                 position: "relative",
                 borderRadius: "24px",
                 overflow: "hidden",
+                bgcolor: "var(--accent)",
                 minHeight: { xs: 420, md: 580 },
               }}
             >
