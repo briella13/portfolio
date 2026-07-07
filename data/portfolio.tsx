@@ -54,6 +54,22 @@ export const featureCards: FeatureCard[] = [
 
 export const projectCards: ProjectCard[] = [
   {
+    title: "iPhone 17 Pro Marketing",
+    category: "Poster Design",
+    image: "/images/projects/iphone.png",
+    description: "A sleek promotional poster concept for the iPhone 17 Pro.",
+    details: "A polished marketing layout showcasing the new Apple A19 Pro chip and 48MP Pro fusion camera. Designed with premium typography and a focus on device aesthetics.",
+    tools: ["Figma", "Canva"],
+  },
+  {
+    title: "Aurélie Atelier Web Design",
+    category: "Web Design",
+    image: "/images/projects/web.png",
+    description: "A premium fashion e-commerce landing page design focused on timeless elegance.",
+    details: "Full web design concept for a sustainable fashion brand. Includes a hero section with high-quality editorial imagery, new arrivals grid, and a refined neutral color palette.",
+    tools: ["Figma", "Canva"],
+  },
+  {
     title: "MIA Jewelry Branding",
     category: "Brand Identity",
     image: "/images/projects/MIA.png",
