@@ -625,11 +625,21 @@ export default function Home() {
                 <Box sx={{ mt: 2.5 }}>
                   <Pills
                     items={[
-                      "Time management",
-                      "Design thinking",
-                      "Graphic design",
-                      "Project management",
-                      "Data preparation",
+                      "Social Media Marketing",
+                      "Content Creation",
+                      "Branding",
+                      "Graphic Design",
+                      "Canva",
+                      "Figma",
+                      "UI Design",
+                      "Website Design",
+                      "Microsoft Excel",
+                      "Data Preparation",
+                      "Project Management",
+                      "Time Management",
+                      "Communication",
+                      "Team Collaboration",
+                      "Design Thinking",
                       "Dependability",
                     ]}
                   />
