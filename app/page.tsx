@@ -166,8 +166,8 @@ export default function Home() {
                   boxShadow: "0 15px 30px rgba(var(--accent-rgb), 0.25)",
                   transition: "all 0.25s ease",
                   "&:hover": {
-                    background:
-                      "linear-gradient(135deg, #6d28d9 0%, #9333ea 100%)",
+                    background: "#ffe6a7",
+                    color: "#38040e",
                     transform: "translateY(-2px)",
                     boxShadow: "0 18px 35px rgba(var(--accent-rgb), 0.35)",
                   },
@@ -865,8 +865,8 @@ export default function Home() {
                       textTransform: "none",
                       fontWeight: 700,
                       "&:hover": {
-                        background:
-                          "linear-gradient(135deg, #6d28d9 0%, #9333ea 100%)",
+                        background: "#ffe6a7",
+                        color: "#38040e",
                       },
                     }}
                   >

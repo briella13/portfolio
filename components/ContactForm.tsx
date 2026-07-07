@@ -136,7 +136,8 @@ export function ContactForm() {
             fontWeight: 700,
             textTransform: "none",
             "&:hover": {
-              background: "linear-gradient(135deg, #6d28d9 0%, #9333ea 100%)",
+              background: "#ffe6a7",
+              color: "#38040e",
             },
           }}
         >
@@ -226,7 +227,8 @@ export function ContactForm() {
               textTransform: "none",
               boxShadow: "0 10px 24px rgba(var(--accent-rgb), 0.15)",
               "&:hover": {
-                background: "linear-gradient(135deg, #6d28d9 0%, #9333ea 100%)",
+                background: "#ffe6a7",
+                color: "#38040e",
               },
               "&.Mui-disabled": {
                 background: "rgba(var(--accent-rgb), 0.12)",
