@@ -567,10 +567,10 @@ export default function Home() {
                         transition: "color 0.3s ease",
                       }}
                     >
-                      Graphic Designer
+                      Entry-Level Digital Marketing
                     </Typography>
                     <Typography sx={{ color: "var(--text-secondary)", mt: 0.5, fontWeight: 500, transition: "color 0.3s ease" }}>
-                      UI/UX Designer · Quality Engineering
+                      Graphic Designer
                     </Typography>
                   </Box>
                 </Stack>
@@ -583,7 +583,7 @@ export default function Home() {
                       icon: <LocationOnOutlinedIcon />,
                       value: "Imperial Homes, Pangpang, Sorsogon",
                     },
-                    { icon: <PhoneOutlinedIcon />, value: "09859851189" },
+                    { icon: <PhoneOutlinedIcon />, value: "09859851189 / 09946542201" },
                     {
                       icon: <MailOutlineIcon />,
                       value: "gubatmia13@gmail.com",
@@ -800,7 +800,7 @@ export default function Home() {
                     {
                       icon: <PhoneOutlinedIcon />,
                       title: "Phone",
-                      value: "09859851189",
+                      value: "09859851189 / 09946542201",
                     },
                     {
                       icon: <MailOutlineIcon />,
