@@ -544,7 +544,7 @@ export default function Home() {
                       alt="Mia Gabriella B. Gubat"
                       fill
                       sizes="84px"
-                      style={{ objectFit: "cover", transform: "scale(1.6) translateY(15%)" }}
+                      style={{ objectFit: "cover", transform: "scale(1.6) translateY(25%)" }}
                     />
                   </Box>
                   <Box>
