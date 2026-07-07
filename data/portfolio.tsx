@@ -276,5 +276,10 @@ export type ToolInfo = {
 export const toolsData: ToolInfo[] = [
   { name: "Figma", category: "Design", description: "Interface design, layouts and wireframing", projectCount: 19 },
   { name: "Canva", category: "Design", description: "Graphic design, posters and mockups", projectCount: 19 },
+  { name: "Microsoft Excel", category: "General", description: "Data preparation, analysis and tracking", projectCount: 19 },
+  { name: "Microsoft Word", category: "General", description: "Documentation and report creation", projectCount: 19 },
+  { name: "PowerPoint", category: "General", description: "Presentation design and slides", projectCount: 19 },
+  { name: "Google Docs", category: "General", description: "Collaborative writing and documentation", projectCount: 19 },
+  { name: "Google Sheets", category: "General", description: "Data management and spreadsheets", projectCount: 19 },
 ];
 
