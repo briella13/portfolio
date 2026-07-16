@@ -54,6 +54,14 @@ export const featureCards: FeatureCard[] = [
 
 export const projectCards: ProjectCard[] = [
   {
+    title: "BusyBee Task Manager",
+    category: "UI/UX Design",
+    image: "/images/projects/busybee.png",
+    description: "Desktop and mobile user interface design for BusyBee.",
+    details: "A comprehensive UI/UX design for a productivity application, featuring both desktop dashboard and mobile app layouts. The design focuses on clean task management, daily progress tracking, and intuitive user flows.",
+    tools: ["Figma"],
+  },
+  {
     title: "iPhone 17 Pro Marketing",
     category: "Poster Design",
     image: "/images/projects/iphone.png",
