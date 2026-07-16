@@ -62,6 +62,14 @@ export const projectCards: ProjectCard[] = [
     tools: ["Figma"],
   },
   {
+    title: "BusyBee Task Manager (Mobile)",
+    category: "UI/UX Design",
+    image: "/images/projects/busybee-mobile.png",
+    description: "Mobile user interface design for BusyBee.",
+    details: "The mobile-optimized version of the BusyBee task management application. This layout highlights seamless on-the-go productivity tracking with bottom navigation and simplified task views.",
+    tools: ["Figma"],
+  },
+  {
     title: "iPhone 17 Pro Marketing",
     category: "Poster Design",
     image: "/images/projects/iphone.png",
